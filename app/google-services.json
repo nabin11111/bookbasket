@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "793956256518",
+    "project_id": "momobarnpj",
+    "storage_bucket": "momobarnpj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793956256518:android:24c3cadeadf6b95cf66c87",
+        "android_client_info": {
+          "package_name": "com.chetan.momoBarNpj"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmbbiU46yQYJl-tojPCkTX4Pj_cuSnZGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793956256518:android:264aaf6784ba2e2df66c87",
+        "android_client_info": {
+          "package_name": "com.chetan.orderdelivery.momoBarNpj"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmbbiU46yQYJl-tojPCkTX4Pj_cuSnZGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

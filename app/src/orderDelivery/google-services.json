@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "1048325140038",
+    "project_id": "orderdelivery-b7963",
+    "storage_bucket": "orderdelivery-b7963.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048325140038:android:0307a0473094247243e447",
+        "android_client_info": {
+          "package_name": "com.chetan.orderDelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048325140038-us5r6vdbvgaa9uk097fe3jum52vnhv42.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACosxjdXjoUXXJBCPSj5t0aYLdEgKgO9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048325140038-us5r6vdbvgaa9uk097fe3jum52vnhv42.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048325140038:android:ad942ea7c0e050ec43e447",
+        "android_client_info": {
+          "package_name": "com.chetan.orderdelivery.orderDelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048325140038-6aj2mhqlmkesi91veubumabhcr0jh0lc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chetan.orderdelivery.orderDelivery",
+            "certificate_hash": "9ae3c7f391d799140b388b93ebd6c5b2c8182ed8"
+          }
+        },
+        {
+          "client_id": "1048325140038-us5r6vdbvgaa9uk097fe3jum52vnhv42.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACosxjdXjoUXXJBCPSj5t0aYLdEgKgO9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048325140038-us5r6vdbvgaa9uk097fe3jum52vnhv42.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "850086359945",
+    "project_id": "momobarnexin",
+    "storage_bucket": "momobarnexin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850086359945:android:6778517218ee64d7d1e758",
+        "android_client_info": {
+          "package_name": "com.chetan.orderdelivery.momoBarNexIn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYChxf9z6zN9F3Mobbu-hMTY81_rHk6O0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
