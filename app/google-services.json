@@ -1,45 +1,37 @@
 {
   "project_info": {
-    "project_number": "793956256518",
-    "project_id": "momobarnpj",
-    "storage_bucket": "momobarnpj.appspot.com"
+    "project_number": "20429004310",
+    "firebase_url": "https://bookbasket-a5d2f-default-rtdb.firebaseio.com",
+    "project_id": "bookbasket-a5d2f",
+    "storage_bucket": "bookbasket-a5d2f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:793956256518:android:24c3cadeadf6b95cf66c87",
+        "mobilesdk_app_id": "1:20429004310:android:89e7c9bc156a5d99d61f37",
         "android_client_info": {
-          "package_name": "com.chetan.momoBarNpj"
+          "package_name": "com.nabin.bookbasket"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "20429004310-d836r4m9bnl6csfv4e4sl8jjit7eajnj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAmbbiU46yQYJl-tojPCkTX4Pj_cuSnZGI"
+          "current_key": "AIzaSyBltBwf_QdDswm0bwrFzehrixsd6RIqio4"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:793956256518:android:264aaf6784ba2e2df66c87",
-        "android_client_info": {
-          "package_name": "com.chetan.orderdelivery.momoBarNpj"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAmbbiU46yQYJl-tojPCkTX4Pj_cuSnZGI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20429004310-d836r4m9bnl6csfv4e4sl8jjit7eajnj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

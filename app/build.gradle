@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.chetan.orderdelivery'
+    namespace 'com.nabin.bookbasket'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.chetan.orderdelivery"
+        applicationId "com.nabin.bookbasket"
         minSdk 26
         targetSdk 34
         versionCode 13
@@ -23,22 +23,6 @@ android {
         }
     }
 
-    flavorDimensions = ["version"]
-    productFlavors {
-        momoBarNexIn{
-            applicationIdSuffix ".momoBarNexIn"
-            versionNameSuffix "-momoBarNexIn"
-            dimension = "version"
-            buildConfigField "String", "OneSingalId","\"apple\""
-        }
-
-        orderDelivery{
-            applicationIdSuffix ".orderDelivery"
-            versionNameSuffix "-orderDelivery"
-            dimension = "version"
-            buildConfigField "String", "OneSingalId","\"apple\""
-        }
-    }
 
     buildTypes {
         release {
