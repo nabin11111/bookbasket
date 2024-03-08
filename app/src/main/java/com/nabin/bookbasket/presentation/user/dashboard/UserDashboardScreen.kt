@@ -298,13 +298,13 @@ fun UserDashboardScreen(
             }, title = {
                 Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(5.dp)) {
                     Text(
-                        text = "MOMO BAR",
+                        text = "Book",
                         style = MaterialTheme.typography.headlineMedium.copy(color = MaterialTheme.colorScheme.onPrimaryContainer),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
                     Text(
-                        text = "Next In",
+                        text = "Basket",
                         style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onPrimaryContainer),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
