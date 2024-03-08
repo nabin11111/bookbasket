@@ -107,7 +107,7 @@ fun UserHomeScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Food",
+                            text = "Book",
                             style = MaterialTheme.typography.headlineMedium.copy(color = MaterialTheme.colorScheme.onPrimaryContainer),
                             modifier = Modifier.padding(start = 5.dp)
                         )
@@ -173,7 +173,7 @@ fun UserHomeScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Popular Food",
+                            text = "Popular Books",
                             style = MaterialTheme.typography.headlineMedium.copy(color = MaterialTheme.colorScheme.onPrimaryContainer),
                             modifier = Modifier.padding(start = 5.dp)
                         )
@@ -309,7 +309,7 @@ fun UserHomeScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Drinks",
+                            text = "Latest",
                             style = MaterialTheme.typography.headlineMedium.copy(color = MaterialTheme.colorScheme.onPrimaryContainer),
                             modifier = Modifier.padding(start = 5.dp)
                         )

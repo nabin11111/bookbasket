@@ -82,7 +82,7 @@ fun AppNavHost(
             LaunchedEffect(key1 = Unit, block = {
                 if (googleAuthUiClient.getSignedInUser() != null) {
                     println(googleAuthUiClient.getSignedInUser()!!.userEmail)
-                    if (googleAuthUiClient.getSignedInUser()!!.userEmail == "momobarnextin@gmail.com") {
+                    if (googleAuthUiClient.getSignedInUser()!!.userEmail == "adhikarinabin567890@gmail.com") {
                         navController.cleanNavigate(Destination.Screen.AdminDashboardScreen.route)
                     } else {
                         navController.cleanNavigate(Destination.Screen.UserDashboardScreen.route)
@@ -106,7 +106,7 @@ fun AppNavHost(
             LaunchedEffect(key1 = state.isSignInSuccessful, block = {
                 if (state.isSignInSuccessful) {
                     viewModel.resetState()
-                    if (googleAuthUiClient.getSignedInUser()!!.userEmail == "momobarnextin@gmail.com") {
+                    if (googleAuthUiClient.getSignedInUser()!!.userEmail == "adhikarinabin567890@gmail.com") {
                         navController.cleanNavigate(Destination.Screen.AdminDashboardScreen.route)
                     } else {
                         navController.cleanNavigate(Destination.Screen.UserDashboardScreen.route)

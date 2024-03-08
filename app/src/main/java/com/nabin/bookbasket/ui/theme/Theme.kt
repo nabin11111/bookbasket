@@ -14,6 +14,14 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.nabin.bookbasket.common.Constants.dark_onprimary
+import com.nabin.bookbasket.common.Constants.dark_onprimaryContainer
+import com.nabin.bookbasket.common.Constants.dark_primary
+import com.nabin.bookbasket.common.Constants.dark_primaryContainer
+import com.nabin.bookbasket.common.Constants.light_onprimary
+import com.nabin.bookbasket.common.Constants.light_onprimaryContainer
+import com.nabin.bookbasket.common.Constants.light_primary
+import com.nabin.bookbasket.common.Constants.light_primaryContainer
 
 private val DarkColorScheme = darkColorScheme(
     primary = light_primary,

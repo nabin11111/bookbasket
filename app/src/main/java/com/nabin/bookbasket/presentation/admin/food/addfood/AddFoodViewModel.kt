@@ -155,6 +155,8 @@ class AddFoodViewModel @Inject constructor(
 
 
                 AddFoodEvent.AddFood -> {
+
+
                     val addFoodRequest = firestoreUseCases.addFood(
                         data = AddFoodRequest(
                             foodId = state.value.foodId,

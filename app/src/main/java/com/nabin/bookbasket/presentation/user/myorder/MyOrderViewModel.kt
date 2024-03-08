@@ -160,7 +160,7 @@ class MyOrderViewModel @Inject constructor(
                     val askStatus = firestoreUseCases.setAdminNotification(
                         StoreNotificationRequestResponse(
                             body = "${preference.userName} wants to know status.",
-                            title = "Food Status",
+                            title = "Book Status",
                             time = System.currentTimeMillis().toString(),
                             readNotice = false,
                         )

@@ -80,7 +80,7 @@ fun UserMoreScreen(
         topBar = {
             TopAppBar(modifier = Modifier.padding(horizontal = 5.dp), title = {
                 Text(
-                    text = "Popular Foods",
+                    text = "Popular Books",
                     style = MaterialTheme.typography.titleMedium.copy(color = MaterialTheme.colorScheme.primary)
                 )
             }, navigationIcon = {
@@ -145,7 +145,7 @@ fun UserMoreScreen(
                     },
                     placeholder = {
                         Text(
-                            text = "Search Food",
+                            text = "Search Book",
                             color = MaterialTheme.colorScheme.outline
                         )
                     },

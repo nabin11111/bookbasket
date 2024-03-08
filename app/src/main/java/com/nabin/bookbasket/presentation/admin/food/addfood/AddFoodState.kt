@@ -10,21 +10,16 @@ data class ImageUrlDetail(
     val storagePath : String = ""
 )
 data class AddFoodState(
-    val foodTypes: List<String> =  listOf("Regular", "Popular","New","Drinks"),
+    val foodTypes: List<String> =  listOf("Regular", "Popular","New","Olds"),
     val selectedFoodType: String = foodTypes[0],
 
-    val foodFamilies: List<String> = listOf("Special Momo",
-        "Special Combo Momo",
-        "Special Piro Momo",
-        "Regular Momo",
-        "Drinks",
-        "Biryani with Raita",
-        "Chowmin & Thuppa",
-        "Rice & Achar",
-        "Cutlets",
-        "Starter Non Veg",
-        "Starter Veg",
-        "Veg"
+    val foodFamilies: List<String> = listOf("Nepali",
+        "English",
+        "Science",
+        "MAth",
+        "Account",
+        "Health",
+
         ),
     val selectedFoodFamily: String = foodFamilies[0],
 

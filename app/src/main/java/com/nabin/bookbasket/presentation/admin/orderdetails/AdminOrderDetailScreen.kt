@@ -221,7 +221,7 @@ fun AdminOrderDetailScreen(
     if (showAlert) {
         AlertDialog(title = {
             Text(
-                text = "Food Delivery", style = TextStyle(
+                text = "Book Delivery", style = TextStyle(
                     fontSize = MaterialTheme.typography.bodyMedium.fontSize,
                     fontWeight = FontWeight.Bold
                 )

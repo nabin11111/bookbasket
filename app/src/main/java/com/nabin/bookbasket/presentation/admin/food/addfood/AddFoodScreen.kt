@@ -82,7 +82,7 @@ fun AddFoodScreen(
     if (alertDialog) {
         AlertDialog(title = {
             Text(
-                text = "Add Food", style = TextStyle(
+                text = "Add Book", style = TextStyle(
                     fontSize = MaterialTheme.typography.bodyMedium.fontSize,
                     fontWeight = FontWeight.Bold
                 )
@@ -113,7 +113,7 @@ fun AddFoodScreen(
     Scaffold(topBar = {
         TopAppBar(modifier = Modifier.padding(horizontal = 5.dp), title = {
             Text(
-                text = "Add Food",
+                text = "Add Book",
                 style = MaterialTheme.typography.titleMedium.copy(color = MaterialTheme.colorScheme.primary)
             )
         }, navigationIcon = {
@@ -207,13 +207,13 @@ fun AddFoodScreen(
                             verticalArrangement = Arrangement.SpaceAround
                         ) {
                             ExposedDropdownMenuBoxOrderDelivery(
-                                label = "Food Family",
+                                label = "Book Family",
                                 items = state.foodFamilies, selectedItem = { foodFamily ->
                                     onEvent(AddFoodEvent.OnSelectedFoodFamilyChange(foodFamily))
                                 }, itemValue = state.selectedFoodFamily
                             )
                             ExposedDropdownMenuBoxOrderDelivery(
-                                label = "Food Type",
+                                label = "Book Type",
                                 items = state.foodTypes, selectedItem = { foodType ->
                                     onEvent(AddFoodEvent.OnSelectedFoodTypeChange(foodType))
                                 }, itemValue = state.selectedFoodType
@@ -224,7 +224,7 @@ fun AddFoodScreen(
                     Spacer(modifier = Modifier.height(5.dp))
                     OutlinedTextFieldAddFood(
                         modifier = Modifier.fillMaxWidth(),
-                        foodLabel = "Food Name",
+                        foodLabel = "Book Name",
                         foodValue = state.foodName,
                         onFoodValueChange = {
                             onEvent(AddFoodEvent.OnFoodNameChange(it))
@@ -233,7 +233,7 @@ fun AddFoodScreen(
                     )
                     OutlinedTextFieldAddFood(
                         modifier = Modifier.fillMaxWidth(),
-                        foodLabel = "Food Details",
+                        foodLabel = "Book Details",
                         foodValue = state.foodDetails,
                         onFoodValueChange = {
                             onEvent(AddFoodEvent.OnFoodDetailsChange(it))

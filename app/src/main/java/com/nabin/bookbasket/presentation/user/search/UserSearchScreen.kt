@@ -91,7 +91,7 @@ fun UserSearchScreen(
 
                 }, placeholder = {
                     Text(
-                        text = "Search Food", color = MaterialTheme.colorScheme.outline
+                        text = "Search Books", color = MaterialTheme.colorScheme.outline
                     )
                 }, keyboardOptions = KeyboardOptions.Default.copy(
                     imeAction = ImeAction.Search

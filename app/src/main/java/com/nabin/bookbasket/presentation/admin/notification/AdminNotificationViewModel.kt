@@ -38,6 +38,8 @@ class AdminNotificationViewModel @Inject constructor(
                 )
             }
             val notificationList = repository.getAdminNotification()
+
+
             when (notificationList) {
                 is Resource.Failure -> {
 

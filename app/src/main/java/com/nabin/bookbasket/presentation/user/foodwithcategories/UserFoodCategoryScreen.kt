@@ -70,7 +70,7 @@ fun UserFoodCategoryScreen(
         topBar = {
             TopAppBar(modifier = Modifier.padding(horizontal = 5.dp), title = {
                 Text(
-                    text = "All Foods",
+                    text = "All Books",
                     style = MaterialTheme.typography.titleMedium.copy(color = MaterialTheme.colorScheme.primary)
                 )
             }, navigationIcon = {

@@ -44,7 +44,7 @@ fun PrivacyPolicyDialog(
                             fontWeight = FontWeight.Bold
                         )
                     ) {
-                        append("MOMO BAR Next In")
+                        append("BOOK BASKET")
                     }
                 })
 
@@ -154,7 +154,7 @@ fun PrivacyPolicyDialog(
                 )
                 Text(
                     modifier = Modifier.padding(start = 5.dp),
-                    text = "If you have questions, concerns, or requests related to your data or this Privacy Policy, please contact us at 9745904088."
+                    text = "If you have questions, concerns, or requests related to your data or this Privacy Policy, please contact us at 9822408852."
                 )
                 Text(
                     modifier = Modifier.padding(start = 5.dp),

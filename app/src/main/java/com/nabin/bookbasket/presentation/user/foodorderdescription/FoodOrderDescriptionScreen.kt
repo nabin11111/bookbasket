@@ -171,7 +171,7 @@ fun FoodOrderDescriptionScreen(
         topBar = {
             TopAppBar(modifier = Modifier.padding(horizontal = 5.dp), title = {
                 Text(
-                    text = "Food Description",
+                    text = "Book Description",
                     style = MaterialTheme.typography.titleMedium.copy(color = MaterialTheme.colorScheme.primary)
                 )
             }, navigationIcon = {

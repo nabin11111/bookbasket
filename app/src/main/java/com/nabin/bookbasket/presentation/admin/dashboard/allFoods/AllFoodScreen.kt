@@ -119,7 +119,7 @@ fun AllFoodScreen(
                     },
                     placeholder = {
                         Text(
-                            text = "Search Food",
+                            text = "Search Book",
                             color = MaterialTheme.colorScheme.outline
                         )
                     },

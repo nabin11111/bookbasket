@@ -192,7 +192,7 @@ fun AdminDashboardScreen(
         listOf(
             AdminInnerPage("home", R.string.home, Icons.Default.Home),
             AdminInnerPage("map", R.string.map, Icons.Default.LocationOn,true),
-            AdminInnerPage("foods", R.string.foods, Icons.Default.Fastfood)
+            AdminInnerPage("books", R.string.foods, Icons.Default.Fastfood)
         )
     }
 
@@ -319,7 +319,7 @@ fun AdminDashboardScreen(
 
                     title = {
                         Text(
-                            text = "MOMO BAR",
+                            text = "BOOK BASKET",
                             style = MaterialTheme.typography.headlineMedium.copy(color = MaterialTheme.colorScheme.onPrimaryContainer),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis

@@ -237,7 +237,7 @@ fun AdminDashboardModalDrawerPage(
 
 
 sealed class MenuItem(val icon: ImageVector, val label: String) {
-    data object AddFoodItem : MenuItem(icon = Icons.Default.LocalPizza, label = "Add Food Item")
+    data object AddFoodItem : MenuItem(icon = Icons.Default.LocalPizza, label = "Add Book Item")
     data object UpdateRating : MenuItem(icon = Icons.Default.StarRate, label = "Update Rating")
     data object SendNotice : MenuItem(icon = Icons.Default.NotificationAdd, label = "Send Notice")
     data object OrderHistory: MenuItem(icon = Icons.Default.History, label = "Order History")

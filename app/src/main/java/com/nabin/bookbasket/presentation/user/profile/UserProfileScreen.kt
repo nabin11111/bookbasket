@@ -58,7 +58,7 @@ fun UserProfileScreen(
     if (alertDialog) {
         AlertDialog(title = {
             Text(
-                text = "Add Food", style = TextStyle(
+                text = "Add Book", style = TextStyle(
                     fontSize = MaterialTheme.typography.bodyMedium.fontSize,
                     fontWeight = FontWeight.Bold
                 )

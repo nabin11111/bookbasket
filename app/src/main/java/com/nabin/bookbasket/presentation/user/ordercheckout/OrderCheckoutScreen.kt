@@ -153,7 +153,7 @@ fun OrderCheckoutScreen(
                     )
                 )
             }, text = {
-                Text(text = "Please enable GPS for Ordering food.")
+                Text(text = "Please enable GPS for Ordering book.")
             }, onDismissRequest = {
 
             }, confirmButton = {

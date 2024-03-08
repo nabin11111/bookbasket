@@ -62,7 +62,7 @@ fun UserFavouriteScreen(
     val scope = rememberCoroutineScope()
     val ctx = LocalContext.current
     val listOfHeader = listOf(
-        "Food", "Drinks"
+        "Books", "Misc."
     )
 
     val pagerState = rememberPagerState(initialPage = 0) {
