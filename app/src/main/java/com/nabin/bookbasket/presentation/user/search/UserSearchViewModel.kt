@@ -19,7 +19,7 @@ class UserSearchViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val data = dbUseCases.getAllFoods().sortedBy { it.bookName }
+            val data = dbUseCases.getAllBooks().sortedBy { it.bookName }
             _state.update {
                 it.copy(
                     allFoods = data,

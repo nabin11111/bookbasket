@@ -57,7 +57,7 @@ class FoodOrderDescriptionViewModel @Inject constructor(
             )
         }
         viewModelScope.launch {
-            dbUseCases.removeAllCheckoutFoods()
+            dbUseCases.removeAllCheckoutBooks()
         }
 
     }
@@ -119,7 +119,7 @@ class FoodOrderDescriptionViewModel @Inject constructor(
                 }
 
                 is FoodOrderDescriptionEvent.GetFoodItemDetails -> {
-                    val data = dbUseCases.getAllFoods().find { it.bookId == event.value }!!
+                    val data = dbUseCases.getAllBooks().find { it.bookId == event.value }!!
                     _state.update {
                         it.copy(
                             foodItemDetails = data,
@@ -146,7 +146,7 @@ class FoodOrderDescriptionViewModel @Inject constructor(
                 }
 
                 is FoodOrderDescriptionEvent.OrderFood -> {
-                    dbUseCases.insertAllCheckoutFoodList(
+                    dbUseCases.insertAllCheckoutBookList(
                         checkList = listOf(
                             CheckoutBooks(
                                 bookId = state.value.foodItemDetails.bookId,

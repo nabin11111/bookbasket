@@ -19,10 +19,10 @@ class UserMoreViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-        val data = dbUseCases.getAllFoods().filter { it.bookType == "Popular" }.sortedBy { it.bookName }
+        val data = dbUseCases.getAllBooks().filter { it.bookType == "Popular" }.sortedBy { it.bookName }
             _state.update {
                 it.copy(
-                    allFoods = data,
+                    allBooks = data,
                     searchedList = data
                 )
             }
@@ -36,7 +36,7 @@ class UserMoreViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             searchQuery = event.value,
-                            searchedList = state.value.allFoods.filter { it.bookName.contains(event.value,ignoreCase = true) }
+                            searchedList = state.value.allBooks.filter { it.bookName.contains(event.value,ignoreCase = true) }
 
                         )
                     }
@@ -45,7 +45,7 @@ class UserMoreViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             searchQuery = "",
-                            searchedList = state.value.allFoods
+                            searchedList = state.value.allBooks
                         )
                     }
                 }
@@ -55,28 +55,28 @@ class UserMoreViewModel @Inject constructor(
                         FilterTypes.Name -> {
                             _state.update {
                                 it.copy(
-                                    searchedList = state.value.allFoods.sortedBy { it.bookName }
+                                    searchedList = state.value.allBooks.sortedBy { it.bookName }
                                 )
                             }
                         }
                         FilterTypes.PriceHigh -> {
                             _state.update {
                                 it.copy(
-                                    searchedList = state.value.allFoods.sortedByDescending { it.bookPrice.toInt() }
+                                    searchedList = state.value.allBooks.sortedByDescending { it.bookPrice.toInt() }
                                 )
                             }
                         }
                         FilterTypes.PriceLow -> {
                             _state.update {
                                 it.copy(
-                                    searchedList = state.value.allFoods.sortedBy { it.bookPrice.toInt() }
+                                    searchedList = state.value.allBooks.sortedBy { it.bookPrice.toInt() }
                                 )
                             }
                         }
                         FilterTypes.Rating -> {
                             _state.update {
                                 it.copy(
-                                    searchedList = state.value.allFoods.sortedByDescending { it.bookRating }
+                                    searchedList = state.value.allBooks.sortedByDescending { it.bookRating }
                                 )
                             }
                         }

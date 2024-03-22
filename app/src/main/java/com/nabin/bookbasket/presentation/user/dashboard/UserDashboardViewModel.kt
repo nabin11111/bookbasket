@@ -102,7 +102,7 @@ class UserDashboardViewModel @Inject constructor(
                 }
 
                 is Resource.Success -> {
-                    dbRepository.insertFoodList(getAllFoodsResponse.data.map {
+                    dbRepository.insertBookList(getAllFoodsResponse.data.map {
                         AllBooks(
                             bookId = it.bookId,
                             bookType = it.bookType,

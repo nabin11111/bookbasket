@@ -41,15 +41,15 @@ object AppModule {
     @Provides
     @Singleton
     fun provdeOrderDeliveryUseCases(repository: DBRepository) = DBUseCases(
-        getAllFoods = GetAllBooks(dbRepository = repository),
-        insertFoodList = InsertBookList(dbRepository = repository),
+        getAllBooks = GetAllBooks(dbRepository = repository),
+        insertBookList = InsertBookList(dbRepository = repository),
 
         insertIds = InsertIds(dbRepository = repository),
         getAllIds = GetAllIds(dbRepository = repository),
 
-        insertAllCheckoutFoodList = InsertAllCheckoutBookList(dbRepository = repository),
-        getAllCheckoutFoods = GetAllCheckoutBooks(dbRepository = repository),
-        removeAllCheckoutFoods = RemoveAllCheckoutBooks(dbRepository = repository)
+        insertAllCheckoutBookList = InsertAllCheckoutBookList(dbRepository = repository),
+        getAllCheckoutBooks = GetAllCheckoutBooks(dbRepository = repository),
+        removeAllCheckoutBooks = RemoveAllCheckoutBooks(dbRepository = repository)
     )
 
 }

@@ -1,14 +1,14 @@
 package com.nabin.bookbasket.domain.use_cases.db
 
 data class DBUseCases(
-    val getAllFoods: GetAllBooks,
-    val insertFoodList: InsertBookList,
+    val getAllBooks: GetAllBooks,
+    val insertBookList: InsertBookList,
 
     val getAllIds: GetAllIds,
     val insertIds: InsertIds,
 
 
-    val getAllCheckoutFoods :GetAllCheckoutBooks,
-    val insertAllCheckoutFoodList: InsertAllCheckoutBookList,
-    val removeAllCheckoutFoods : RemoveAllCheckoutBooks
+    val getAllCheckoutBooks :GetAllCheckoutBooks,
+    val insertAllCheckoutBookList: InsertAllCheckoutBookList,
+    val removeAllCheckoutBooks : RemoveAllCheckoutBooks
 )

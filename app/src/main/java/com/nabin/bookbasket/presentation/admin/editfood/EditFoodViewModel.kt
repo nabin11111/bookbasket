@@ -36,7 +36,7 @@ class EditFoodViewModel @Inject constructor(
         viewModelScope.launch {
             when (event) {
                 is EditFoodEvent.GetFoodItemDetails -> {
-                    val data = dbUseCases.getAllFoods().find { it.bookId == event.value }!!
+                    val data = dbUseCases. getAllBooks().find { it.bookId == event.value }!!
                     _state.update {
                         it.copy(
                             selectedFoodType = data.bookType,

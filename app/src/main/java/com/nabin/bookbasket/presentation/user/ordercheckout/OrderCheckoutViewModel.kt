@@ -76,7 +76,7 @@ class OrderCheckoutViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update {
                 it.copy(
-                    orderList = dbUseCases.getAllCheckoutFoods()
+                    orderList = dbUseCases.getAllCheckoutBooks()
                 )
             }
         }

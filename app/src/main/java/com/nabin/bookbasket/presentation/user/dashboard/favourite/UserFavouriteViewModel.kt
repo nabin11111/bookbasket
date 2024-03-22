@@ -37,7 +37,7 @@ class UserFavouriteViewModel @Inject constructor(
                 is Resource.Success -> {
                     _state.update {
                         it.copy(
-                            allFoods = dbUseCases.getAllFoods().filter { food ->
+                            allFoods = dbUseCases.getAllBooks().filter { food ->
                                 allFavList.data.any { it.bookId == food.bookId }
                             }
                         )

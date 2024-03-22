@@ -5,7 +5,7 @@ import com.nabin.bookbasket.presentation.common.components.OrderDeliveryScreenSt
 import com.nabin.bookbasket.presentation.common.components.dialogs.Message
 
 data class UserMoreState(
-    val allFoods : List<AllBooks> = emptyList(),
+    val allBooks : List<AllBooks> = emptyList(),
     val searchedList: List<AllBooks> = emptyList(),
     val searchQuery: String = "",
     override val infoMsg: Message? = null

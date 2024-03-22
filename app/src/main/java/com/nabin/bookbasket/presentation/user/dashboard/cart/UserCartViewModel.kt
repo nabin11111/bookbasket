@@ -53,8 +53,8 @@ class UserCartViewModel @Inject constructor(
 
     private fun getCartItems() {
         viewModelScope.launch {
-            dbUseCases.removeAllCheckoutFoods()
-            val allFoods = dbUseCases.getAllFoods()
+            dbUseCases.removeAllCheckoutBooks()
+            val allFoods = dbUseCases.getAllBooks()
 
             when (val cartItemList = firestoreUseCases.getCartItems()) {
                 is Resource.Failure -> {
@@ -165,8 +165,8 @@ class UserCartViewModel @Inject constructor(
                 }
 
                 UserCartEvent.Checkout -> {
-                    dbUseCases.removeAllCheckoutFoods()
-                    dbUseCases.insertAllCheckoutFoodList(checkList = state.value.cartItemList.filter { it.isSelected }
+                    dbUseCases.removeAllCheckoutBooks()
+                    dbUseCases.insertAllCheckoutBookList(checkList = state.value.cartItemList.filter { it.isSelected }
                         .map {
                             CheckoutBooks(
                                 bookId = it.bookId,

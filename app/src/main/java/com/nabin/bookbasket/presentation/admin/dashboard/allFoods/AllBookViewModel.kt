@@ -50,7 +50,7 @@ class AllBookViewModel @Inject constructor(
 
                 is Resource.Success -> {
                     val data = getAllFoodsResponse.data.sortedByDescending { it.bookRating }
-                    dbUseCases.insertFoodList(data.map {
+                    dbUseCases.insertBookList(data.map {
                         AllBooks(
                             bookId = it.bookId,
                             bookType = it.bookType,
