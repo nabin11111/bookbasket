@@ -10,11 +10,11 @@ import com.nabin.bookbasket.data.model.ProfileRequestResponse
 import com.nabin.bookbasket.data.model.SetLatLng
 import com.nabin.bookbasket.data.model.StoreNotificationRequestResponse
 import com.nabin.bookbasket.domain.model.SetOneSignalId
-import com.nabin.bookbasket.data.model.order.RequestFoodOrder
+import com.nabin.bookbasket.data.model.order.RequestBookOrder
 
 interface FirestoreRepository {
     suspend fun orderFood(
-        data : RequestFoodOrder
+        data : RequestBookOrder
     ) : Resource<Boolean>
 
     suspend fun setAddress(
@@ -33,7 +33,7 @@ interface FirestoreRepository {
     suspend fun addToCart(foodItem: GetCartItemModel) : Resource<Boolean>
     suspend fun getCartItems() : Resource<List<GetCartItemModel>>
     suspend fun deleteCartItem(foodId: String): Resource<Boolean>
-    suspend fun getMyHistory(): Resource<List<RequestFoodOrder>>
+    suspend fun getMyHistory(): Resource<List<RequestBookOrder>>
     suspend fun deleteMyHistory(orderId: String): Resource<Boolean>
 
     suspend fun setFavourite(isFavourite: Boolean = false, foodId: String): Resource<Boolean>
@@ -58,18 +58,18 @@ interface FirestoreRepository {
 
     //admin
     suspend fun getFoodOrders(): Resource<List<SetLatLng>>
-    suspend fun getFoodOrderDetails(user: String) : Resource<List<RequestFoodOrder>>
+    suspend fun getFoodOrderDetails(user: String) : Resource<List<RequestBookOrder>>
     suspend fun addFood(
         data: AddFoodRequest
     ): Resource<Boolean>
 
-    suspend fun orderDelivered(data : RequestFoodOrder): Resource<Boolean>
+    suspend fun orderDelivered(data : RequestBookOrder): Resource<Boolean>
     suspend fun removeUser(user : String): Resource<Boolean>
-    suspend fun updateUserHistory(data : RequestFoodOrder): Resource<Boolean>
-    suspend fun updateDeliveredHistroy(data: RequestFoodOrder) : Resource<Boolean>
+    suspend fun updateUserHistory(data : RequestBookOrder): Resource<Boolean>
+    suspend fun updateDeliveredHistroy(data: RequestBookOrder) : Resource<Boolean>
     suspend fun addOffer(url: String) : Resource<Boolean>
     suspend fun getOffer() : Resource<String>
-    suspend fun getAdminHistories() : Resource<List<RequestFoodOrder>>
+    suspend fun getAdminHistories() : Resource<List<RequestBookOrder>>
     suspend fun getAdminNotification(): Resource<List<StoreNotificationRequestResponse>>
     suspend fun setAdminNotification(data: StoreNotificationRequestResponse): Resource<Boolean>
     suspend fun deleteAdminNotification(id: String): Resource<Boolean>

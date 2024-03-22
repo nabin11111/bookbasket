@@ -11,7 +11,7 @@ import com.nabin.bookbasket.data.model.ProfileRequestResponse
 import com.nabin.bookbasket.data.model.SetLatLng
 import com.nabin.bookbasket.data.model.StoreNotificationRequestResponse
 import com.nabin.bookbasket.domain.model.SetOneSignalId
-import com.nabin.bookbasket.data.model.order.RequestFoodOrder
+import com.nabin.bookbasket.data.model.order.RequestBookOrder
 import com.nabin.bookbasket.domain.repository.FirestoreRepository
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
@@ -21,7 +21,7 @@ import javax.inject.Inject
 class FirestoreRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore, private val preference: Preference
 ) : FirestoreRepository {
-    override suspend fun orderFood(data: RequestFoodOrder): Resource<Boolean> {
+    override suspend fun orderFood(data: RequestBookOrder): Resource<Boolean> {
         return try {
 //            withContext(Dispatchers.IO) {
 //                data.map { order ->
@@ -195,13 +195,13 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getMyHistory(): Resource<List<RequestFoodOrder>> {
+    override suspend fun getMyHistory(): Resource<List<RequestBookOrder>> {
         return try {
-            val orderList = mutableListOf<RequestFoodOrder>()
+            val orderList = mutableListOf<RequestBookOrder>()
             val querySnapshot = firestore.collection("users").document(preference.tableName ?: "")
                 .collection("history").get().await()
             for (document in querySnapshot.documents) {
-                val order = document.toObject<RequestFoodOrder>()
+                val order = document.toObject<RequestBookOrder>()
                 order?.let {
                     orderList.add(it)
                 }
@@ -454,14 +454,14 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getFoodOrderDetails(user: String): Resource<List<RequestFoodOrder>> {
+    override suspend fun getFoodOrderDetails(user: String): Resource<List<RequestBookOrder>> {
         return try {
-            val orderDetailsList = mutableListOf<RequestFoodOrder>()
+            val orderDetailsList = mutableListOf<RequestBookOrder>()
             val documentRef =
                 firestore.collection("admin").document("foods").collection("orders").document(user)
                     .collection("orderDetails").get().await()
             for (document in documentRef.documents) {
-                val data = document.toObject<RequestFoodOrder>()
+                val data = document.toObject<RequestBookOrder>()
                 data?.let {
                     orderDetailsList.add(data)
                 }
@@ -484,7 +484,7 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun orderDelivered(data: RequestFoodOrder): Resource<Boolean> {
+    override suspend fun orderDelivered(data: RequestBookOrder): Resource<Boolean> {
         return try {
             var isTrue = false
             val ref = firestore.collection("admin").document("foods").collection("orders")
@@ -518,7 +518,7 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun updateUserHistory(data: RequestFoodOrder): Resource<Boolean> {
+    override suspend fun updateUserHistory(data: RequestBookOrder): Resource<Boolean> {
         return try {
             var isTrue = false
             val ref = firestore.collection("users").document(data.userMail).collection("history")
@@ -534,7 +534,7 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun updateDeliveredHistroy(data: RequestFoodOrder): Resource<Boolean> {
+    override suspend fun updateDeliveredHistroy(data: RequestBookOrder): Resource<Boolean> {
         return try {
             var isTrue = false
             val ref = firestore.collection("admin").document("foods").collection("orderHistory")
@@ -587,16 +587,16 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getAdminHistories(): Resource<List<RequestFoodOrder>> {
+    override suspend fun getAdminHistories(): Resource<List<RequestBookOrder>> {
         return try {
-            var list = mutableListOf<RequestFoodOrder>()
+            var list = mutableListOf<RequestBookOrder>()
             val ref = firestore.collection("admin")
                 .document("foods")
                 .collection("orderHistory")
                 .get()
                 .await()
             for (document in ref.documents){
-                val data = document.toObject<RequestFoodOrder>()
+                val data = document.toObject<RequestBookOrder>()
                 data?.let {
                     list.add(it)
                 }

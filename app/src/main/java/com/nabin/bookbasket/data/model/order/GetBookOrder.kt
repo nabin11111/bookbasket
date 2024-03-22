@@ -1,5 +1,5 @@
 package com.nabin.bookbasket.data.model.order
 
-data class GetFoodOrder(
+data class GetBookOrder(
     val location : String = ""
 )

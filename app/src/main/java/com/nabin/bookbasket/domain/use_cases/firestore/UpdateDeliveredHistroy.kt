@@ -1,11 +1,11 @@
 package com.nabin.bookbasket.domain.use_cases.firestore
 
-import com.nabin.bookbasket.data.model.order.RequestFoodOrder
+import com.nabin.bookbasket.data.model.order.RequestBookOrder
 import com.nabin.bookbasket.domain.repository.FirestoreRepository
 import javax.inject.Inject
 
 class UpdateDeliveredHistroy @Inject constructor(
     private val repository: FirestoreRepository
 ) {
-    suspend operator fun invoke(data: RequestFoodOrder) = repository.updateDeliveredHistroy(data)
+    suspend operator fun invoke(data: RequestBookOrder) = repository.updateDeliveredHistroy(data)
 }

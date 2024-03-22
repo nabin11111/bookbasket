@@ -8,7 +8,7 @@ import com.nabin.bookbasket.data.local.Preference
 import com.nabin.bookbasket.data.model.PushNotificationRequest
 import com.nabin.bookbasket.data.model.RealtimeModelResponse
 import com.nabin.bookbasket.data.model.SetLatLng
-import com.nabin.bookbasket.data.model.order.RequestFoodOrder
+import com.nabin.bookbasket.data.model.order.RequestBookOrder
 import com.nabin.bookbasket.domain.repository.OneSignalRepository
 import com.nabin.bookbasket.domain.use_cases.db.DBUseCases
 import com.nabin.bookbasket.domain.use_cases.firestore.FirestoreUseCases
@@ -226,7 +226,7 @@ class OrderCheckoutViewModel @Inject constructor(
                             if (setAddress.data) {
                                 val orderRequest =
                                     firestoreUseCases.orderFood(
-                                        data = RequestFoodOrder(
+                                        data = RequestBookOrder(
                                             orderId = System.currentTimeMillis().toString(),
                                             locationLat = location.first(),
                                             locationLng = location.last(),
@@ -242,7 +242,7 @@ class OrderCheckoutViewModel @Inject constructor(
                                             dateTime = CurrentDateTimeSDF(),
                                             branch = state.value.branch,
                                             orderList = state.value.orderList.map { food ->
-                                                RequestFoodOrder.OrderedList(
+                                                RequestBookOrder.OrderedList(
                                                     foodId = food.foodId,
                                                     foodType = food.foodType,
                                                     foodFamily = food.foodFamily,

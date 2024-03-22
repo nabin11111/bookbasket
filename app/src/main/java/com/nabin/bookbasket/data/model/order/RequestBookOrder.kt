@@ -1,6 +1,6 @@
 package com.nabin.bookbasket.data.model.order
 
-data class RequestFoodOrder(
+data class RequestBookOrder(
     val orderId: String = "",
 
     val userName: String = "",
