@@ -8,7 +8,7 @@ import com.nabin.bookbasket.data.repositoryImpl.StorageRepositoryImpl
 import com.nabin.bookbasket.domain.repository.FirestoreRepository
 import com.nabin.bookbasket.domain.repository.RealtimeRepository
 import com.nabin.bookbasket.domain.repository.StorageRepository
-import com.nabin.bookbasket.domain.use_cases.firestore.AddFood
+import com.nabin.bookbasket.domain.use_cases.firestore.AddBook
 import com.nabin.bookbasket.domain.use_cases.firestore.AddOffer
 import com.nabin.bookbasket.domain.use_cases.firestore.AddToCart
 import com.nabin.bookbasket.domain.use_cases.firestore.DeleteAdminNotification
@@ -117,7 +117,7 @@ object FirebaseModule {
             getFoodOrderDetails = GetBookOrderDetails(repository = repository),
             getFoodItem = GetBookItem(repository = repository),
             getFoods = GetBooks(repository = repository),
-            addFood = AddFood(repository = repository),
+            addFood = AddBook(repository = repository),
             removeUserOrder = RemoveUserOrder(repository = repository),
             updateUserHistory = UpdateUserHistory(repository = repository),
             orderDelivered = OrderDelivered(repository = repository),

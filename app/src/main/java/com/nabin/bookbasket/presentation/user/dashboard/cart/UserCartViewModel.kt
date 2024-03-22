@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.nabin.bookbasket.R
 import com.nabin.bookbasket.data.Resource
 import com.nabin.bookbasket.data.local.Preference
-import com.nabin.bookbasket.domain.model.CheckoutFoods
+import com.nabin.bookbasket.domain.model.CheckoutBooks
 import com.nabin.bookbasket.domain.use_cases.db.DBUseCases
 import com.nabin.bookbasket.domain.use_cases.firestore.FirestoreUseCases
 import com.nabin.bookbasket.domain.use_cases.realtime.RealtimeUseCases
@@ -168,18 +168,18 @@ class UserCartViewModel @Inject constructor(
                     dbUseCases.removeAllCheckoutFoods()
                     dbUseCases.insertAllCheckoutFoodList(checkList = state.value.cartItemList.filter { it.isSelected }
                         .map {
-                            CheckoutFoods(
-                                foodId = it.bookId,
-                                foodType = it.bookType,
-                                foodFamily = it.bookFamily,
-                                foodName = it.bookName,
-                                foodDetails = it.bookDetails,
-                                foodPrice = it.bookPrice,
-                                foodDiscount = it.bookDiscount,
-                                foodNewPrice = it.bookNewPrice,
+                            CheckoutBooks(
+                                bookId = it.bookId,
+                                bookType = it.bookType,
+                                bookFamily = it.bookFamily,
+                                bookName = it.bookName,
+                                bookDetails = it.bookDetails,
+                                bookPrice = it.bookPrice,
+                                bookDiscount = it.bookDiscount,
+                                bookNewPrice = it.bookNewPrice,
                                 isSelected = it.isSelected,
-                                foodRating = it.bookRating,
-                                newFoodRating = it.newBookRating,
+                                bookRating = it.bookRating,
+                                newBookRating = it.newBookRating,
                                 quantity = it.quantity,
                                 date = it.date,
                                 faceImgName = it.faceImgName,

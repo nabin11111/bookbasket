@@ -243,17 +243,17 @@ class OrderCheckoutViewModel @Inject constructor(
                                             branch = state.value.branch,
                                             orderList = state.value.orderList.map { food ->
                                                 RequestBookOrder.OrderedList(
-                                                    bookId = food.foodId,
-                                                    bookType = food.foodType,
-                                                    bookFamily = food.foodFamily,
-                                                    bookName = food.foodName,
-                                                    bookDetails = food.foodDetails,
-                                                    bookPrice = food.foodPrice,
-                                                    bookDiscount = food.foodDiscount,
-                                                    bookNewPrice = food.foodNewPrice,
+                                                    bookId = food.bookId,
+                                                    bookType = food.bookType,
+                                                    bookFamily = food.bookFamily,
+                                                    bookName = food.bookName,
+                                                    bookDetails = food.bookDetails,
+                                                    bookPrice = food.bookPrice,
+                                                    bookDiscount = food.bookDiscount,
+                                                    bookNewPrice = food.bookNewPrice,
                                                     isSelected = food.isSelected,
-                                                    foodRating = food.foodRating,
-                                                    newBookRating = food.newFoodRating,
+                                                    foodRating = food.bookRating,
+                                                    newBookRating = food.newBookRating,
                                                     quantity = food.quantity,
                                                     date = CurrentDateTimeSDF(),
                                                     faceImgName = food.faceImgName,
@@ -278,7 +278,7 @@ class OrderCheckoutViewModel @Inject constructor(
                                         )
                                         for (food in state.value.orderList) {
                                             if (food.isSelected) {
-                                                firestoreUseCases.deleteCartItem(food.foodId)
+                                                firestoreUseCases.deleteCartItem(food.bookId)
                                             }
                                         }
                                         try {

@@ -5,12 +5,12 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.nabin.bookbasket.domain.model.AllBooks
-import com.nabin.bookbasket.domain.model.CheckoutFoods
+import com.nabin.bookbasket.domain.model.CheckoutBooks
 import com.nabin.bookbasket.domain.model.SetOneSignalId
 
 
 @Dao
-interface AllFoodsDao {
+interface AllBooksDao {
 
     @Query("SELECT * FROM allBooks")
     suspend fun getAllFoods() : List<AllBooks>
@@ -24,13 +24,13 @@ interface AllFoodsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIds(idList: List<SetOneSignalId>)
 
-    @Query("SELECT * FROM CheckoutFoods")
-    suspend fun getAllCheckoutFoods() : List<CheckoutFoods>
+    @Query("SELECT * FROM CheckoutBooks")
+    suspend fun getAllCheckoutFoods() : List<CheckoutBooks>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllCheckedoutFoods(checkedList: List<CheckoutFoods>)
+    suspend fun insertAllCheckedoutFoods(checkedList: List<CheckoutBooks>)
 
-    @Query("DELETE FROM CheckoutFoods")
+    @Query("DELETE FROM CheckoutBooks")
     suspend fun removeAllCheckoutFoods()
 
 }

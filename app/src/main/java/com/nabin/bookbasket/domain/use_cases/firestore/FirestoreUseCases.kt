@@ -29,7 +29,7 @@ data class FirestoreUseCases(
     val setAdminNotification: SetAdminNotification,
     val deleteAdminNotification: DeleteAdminNotification,
 
-    val addFood : AddFood,
+    val addFood : AddBook,
     val addOffer : AddOffer,
     val getOffer : GetOffer,
 

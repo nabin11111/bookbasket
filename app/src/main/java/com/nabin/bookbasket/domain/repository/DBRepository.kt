@@ -1,7 +1,7 @@
 package com.nabin.bookbasket.domain.repository
 
 import com.nabin.bookbasket.domain.model.AllBooks
-import com.nabin.bookbasket.domain.model.CheckoutFoods
+import com.nabin.bookbasket.domain.model.CheckoutBooks
 import com.nabin.bookbasket.domain.model.SetOneSignalId
 
 interface DBRepository {
@@ -11,7 +11,7 @@ interface DBRepository {
     suspend fun getAllIds(): List<SetOneSignalId>
     suspend fun insertIds(idsList: List<SetOneSignalId>)
 
-    suspend fun getAllCheckoutFoods() : List<CheckoutFoods>
-    suspend fun insertAllCheckoutFoods(checkList : List<CheckoutFoods>)
+    suspend fun getAllCheckoutFoods() : List<CheckoutBooks>
+    suspend fun insertAllCheckoutFoods(checkList : List<CheckoutBooks>)
     suspend fun removeAllCheckoutFoods()
 }

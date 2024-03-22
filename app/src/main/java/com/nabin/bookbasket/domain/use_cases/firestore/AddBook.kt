@@ -4,7 +4,7 @@ import com.nabin.bookbasket.data.model.AddBookRequest
 import com.nabin.bookbasket.domain.repository.FirestoreRepository
 import javax.inject.Inject
 
-class AddFood @Inject constructor(
+class AddBook @Inject constructor(
     private val repository: FirestoreRepository
 ) {
     suspend operator fun invoke(data: AddBookRequest) = repository.addFood(data)

@@ -8,7 +8,7 @@ import com.nabin.bookbasket.R
 import com.nabin.bookbasket.data.Resource
 import com.nabin.bookbasket.data.local.Preference
 import com.nabin.bookbasket.data.model.GetCartItemModel
-import com.nabin.bookbasket.domain.model.CheckoutFoods
+import com.nabin.bookbasket.domain.model.CheckoutBooks
 import com.nabin.bookbasket.domain.use_cases.db.DBUseCases
 import com.nabin.bookbasket.domain.use_cases.firestore.FirestoreUseCases
 import com.nabin.bookbasket.domain.use_cases.realtime.RealtimeUseCases
@@ -148,18 +148,18 @@ class FoodOrderDescriptionViewModel @Inject constructor(
                 is FoodOrderDescriptionEvent.OrderFood -> {
                     dbUseCases.insertAllCheckoutFoodList(
                         checkList = listOf(
-                            CheckoutFoods(
-                                foodId = state.value.foodItemDetails.bookId,
-                                foodType = state.value.foodItemDetails.bookType,
-                                foodFamily = state.value.foodItemDetails.bookFamily,
-                                foodName = state.value.foodItemDetails.bookName,
-                                foodDetails = state.value.foodItemDetails.bookDetails,
-                                foodPrice = state.value.foodItemDetails.bookPrice,
-                                foodDiscount = state.value.foodItemDetails.bookDiscount,
-                                foodNewPrice = state.value.foodItemDetails.bookNewPrice,
+                            CheckoutBooks(
+                                bookId = state.value.foodItemDetails.bookId,
+                                bookType = state.value.foodItemDetails.bookType,
+                                bookFamily = state.value.foodItemDetails.bookFamily,
+                                bookName = state.value.foodItemDetails.bookName,
+                                bookDetails = state.value.foodItemDetails.bookDetails,
+                                bookPrice = state.value.foodItemDetails.bookPrice,
+                                bookDiscount = state.value.foodItemDetails.bookDiscount,
+                                bookNewPrice = state.value.foodItemDetails.bookNewPrice,
                                 isSelected = true,
-                                foodRating = state.value.foodItemDetails.bookRating,
-                                newFoodRating = state.value.foodItemDetails.newBookRating,
+                                bookRating = state.value.foodItemDetails.bookRating,
+                                newBookRating = state.value.foodItemDetails.newBookRating,
                                 quantity = state.value.foodQuantity,
                                 date = CurrentDateTimeSDF(),
                                 faceImgName = state.value.foodItemDetails.faceImgName,

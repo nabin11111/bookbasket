@@ -1,6 +1,6 @@
 package com.nabin.bookbasket.presentation.user.ordercheckout
 
-import com.nabin.bookbasket.domain.model.CheckoutFoods
+import com.nabin.bookbasket.domain.model.CheckoutBooks
 import com.nabin.bookbasket.domain.model.SetOneSignalId
 import com.nabin.bookbasket.presentation.common.components.OrderDeliveryScreenState
 import com.nabin.bookbasket.presentation.common.components.dialogs.Message
@@ -19,7 +19,7 @@ data class OrderCheckoutState(
     val branch: String = "npj",
     val cameraLocation: LatLng = LatLng(28.0594641, 81.617649,),
     val distance: String ="",
-    val orderList: List<CheckoutFoods> = emptyList(),
+    val orderList: List<CheckoutBooks> = emptyList(),
     val allIds: List<SetOneSignalId> = emptyList(),
     val canOrder: Boolean = false,
     override val infoMsg: Message? = null

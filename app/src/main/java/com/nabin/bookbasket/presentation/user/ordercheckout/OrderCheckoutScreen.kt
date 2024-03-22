@@ -431,14 +431,14 @@ fun OrderCheckoutScreen(
                             ) {
                                 Column {
                                     Text(
-                                        text = food.foodName,
+                                        text = food.bookName,
                                         style = MaterialTheme.typography.headlineMedium.copy(),
                                         maxLines = 1,
                                         overflow = TextOverflow.Ellipsis
                                     )
 
                                     Text(
-                                        text = food.foodDetails,
+                                        text = food.bookDetails,
                                         maxLines = 2,
                                         minLines = 2,
                                         style = MaterialTheme.typography.bodyMedium.copy(
@@ -459,7 +459,7 @@ fun OrderCheckoutScreen(
                                             verticalAlignment = Alignment.Bottom
                                         ) {
                                             Text(
-                                                text = "${food.foodNewPrice * food.quantity}",
+                                                text = "${food.bookNewPrice * food.quantity}",
                                                 style = MaterialTheme.typography.bodyMedium.copy(
                                                     color = Color.Red,
                                                     fontWeight = FontWeight.Bold,
@@ -467,7 +467,7 @@ fun OrderCheckoutScreen(
                                                 )
                                             )
                                             Text(
-                                                text = "${food.foodPrice.toInt() * food.quantity}",
+                                                text = "${food.bookPrice.toInt() * food.quantity}",
                                                 style = MaterialTheme.typography.bodyMedium.copy(
                                                     color = MaterialTheme.colorScheme.outline,
                                                     fontWeight = FontWeight.SemiBold,
@@ -648,7 +648,7 @@ fun OrderCheckoutScreen(
                             textDecoration = TextDecoration.LineThrough
                         )
                     ) {
-                        append(state.orderList.sumOf { it.foodPrice.toInt() * it.quantity }
+                        append(state.orderList.sumOf { it.bookPrice.toInt() * it.quantity }
                             .toString())
                     }
                 })
