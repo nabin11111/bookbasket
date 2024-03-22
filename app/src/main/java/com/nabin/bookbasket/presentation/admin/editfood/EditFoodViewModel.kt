@@ -5,7 +5,7 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nabin.bookbasket.data.Resource
-import com.nabin.bookbasket.data.model.AddFoodRequest
+import com.nabin.bookbasket.data.model.AddBookRequest
 import com.nabin.bookbasket.data.model.ImageStorageDetails
 import com.nabin.bookbasket.domain.use_cases.db.DBUseCases
 import com.nabin.bookbasket.domain.use_cases.firestore.FirestoreUseCases
@@ -36,35 +36,35 @@ class EditFoodViewModel @Inject constructor(
         viewModelScope.launch {
             when (event) {
                 is EditFoodEvent.GetFoodItemDetails -> {
-                    val data = dbUseCases.getAllFoods().find { it.foodId == event.value }!!
+                    val data = dbUseCases.getAllFoods().find { it.bookId == event.value }!!
                     _state.update {
                         it.copy(
-                            selectedFoodType = data.foodType,
-                            selectedFoodFamily = data.foodFamily,
-                            foodName = data.foodName,
-                            foodId = data.foodId,
-                            foodDetails = data.foodDetails,
-                            foodDiscountPrice = data.foodDiscount,
-                            foodPrice = data.foodPrice,
+                            selectedFoodType = data.bookType,
+                            selectedFoodFamily = data.bookFamily,
+                            foodName = data.bookName,
+                            foodId = data.bookId,
+                            foodDetails = data.bookDetails,
+                            foodDiscountPrice = data.bookDiscount,
+                            foodPrice = data.bookPrice,
                             faceImgUrl = ImageUrlDetail(
                                 imageName = data.faceImgName,
                                 imageUrl = data.faceImgUrl,
-                                storagePath = "/foods/${data.foodId}/",
+                                storagePath = "/foods/${data.bookId}/",
                             ),
                             supportImgUrl2 = ImageUrlDetail(
                                 imageName = data.supportImgName2,
                                 imageUrl = data.supportImgUrl2,
-                                storagePath = "/foods/${data.foodId}/",
+                                storagePath = "/foods/${data.bookId}/",
                             ),
                             supportImgUrl3 = ImageUrlDetail(
                                 imageName = data.supportImgName3,
                                 imageUrl = data.supportImgUrl3,
-                                storagePath = "/foods/${data.foodId}/",
+                                storagePath = "/foods/${data.bookId}/",
                             ),
                             supportImgUrl4 = ImageUrlDetail(
                                 imageName = data.supportImgName4,
                                 imageUrl = data.supportImgUrl4,
-                                storagePath = "/foods/${data.foodId}/",
+                                storagePath = "/foods/${data.bookId}/",
                             ),
                             foodItemDetails = data
                         )
@@ -193,16 +193,16 @@ class EditFoodViewModel @Inject constructor(
 
                 EditFoodEvent.AddFood -> {
                     val addFoodRequest = firestoreUseCases.addFood(
-                        data = AddFoodRequest(
-                            foodId = state.value.foodId,
-                            foodType = state.value.selectedFoodType,
-                            foodFamily = state.value.selectedFoodFamily,
-                            foodName = state.value.foodName,
-                            foodDetails = state.value.foodDetails,
-                            foodPrice = state.value.foodPrice,
-                            foodDiscount = state.value.foodDiscountPrice,
-                            foodNewPrice = state.value.foodPrice.toInt() - state.value.foodDiscountPrice.toInt(),
-                            foodRating = 0f,
+                        data = AddBookRequest(
+                            bookId = state.value.foodId,
+                            bookType = state.value.selectedFoodType,
+                            bookFamily = state.value.selectedFoodFamily,
+                            bookName = state.value.foodName,
+                            bookDetails = state.value.foodDetails,
+                            bookPrice = state.value.foodPrice,
+                            bookDiscount = state.value.foodDiscountPrice,
+                            bookNewPrice = state.value.foodPrice.toInt() - state.value.foodDiscountPrice.toInt(),
+                            bookRating = 0f,
                             date = LocalDateTime.now().format(
                                 DateTimeFormatter.ofPattern("yyyy-MM-dd")
                             ),

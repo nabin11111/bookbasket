@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nabin.bookbasket.R
 import com.nabin.bookbasket.data.Resource
-import com.nabin.bookbasket.domain.model.AllFoods
+import com.nabin.bookbasket.domain.model.AllBooks
 import com.nabin.bookbasket.domain.use_cases.db.DBUseCases
 import com.nabin.bookbasket.domain.use_cases.firestore.FirestoreUseCases
 import com.nabin.bookbasket.presentation.common.components.dialogs.Message
@@ -49,19 +49,19 @@ class AllFoodViewModel @Inject constructor(
                 }
 
                 is Resource.Success -> {
-                    val data = getAllFoodsResponse.data.sortedByDescending { it.foodRating }
+                    val data = getAllFoodsResponse.data.sortedByDescending { it.bookRating }
                     dbUseCases.insertFoodList(data.map {
-                        AllFoods(
-                            foodId = it.foodId,
-                            foodType = it.foodType,
-                            foodFamily = it.foodFamily,
-                            foodName = it.foodName,
-                            foodDetails = it.foodDetails,
-                            foodPrice = it.foodPrice,
-                            foodDiscount = it.foodDiscount,
-                            foodNewPrice = it.foodNewPrice,
-                            foodRating = it.foodRating,
-                            newFoodRating = it.newFoodRating,
+                        AllBooks(
+                            bookId = it.bookId,
+                            bookType = it.bookType,
+                            bookFamily = it.bookFamily,
+                            bookName = it.bookName,
+                            bookDetails = it.bookDetails,
+                            bookPrice = it.bookPrice,
+                            bookDiscount = it.bookDiscount,
+                            bookNewPrice = it.bookNewPrice,
+                            bookRating = it.bookRating,
+                            newBookRating = it.newBookRating,
                             date = it.date,
                             faceImgName = it.faceImgName,
                             faceImgUrl = it.faceImgUrl,
@@ -82,7 +82,7 @@ class AllFoodViewModel @Inject constructor(
                     })
                     _state.update {
                         it.copy(
-                            allFoods = data,
+                            allBooks = data,
                             searchedList = data,
                             infoMsg = null
                         )
@@ -104,28 +104,28 @@ class AllFoodViewModel @Inject constructor(
                         FilterTypes.Name -> {
                             _state.update {
                                 it.copy(
-                                    searchedList = state.value.allFoods.sortedBy { it.foodName }
+                                    searchedList = state.value.allBooks.sortedBy { it.bookName }
                                 )
                             }
                         }
                         FilterTypes.PriceHigh -> {
                             _state.update {
                                 it.copy(
-                                    searchedList = state.value.allFoods.sortedByDescending { it.foodPrice.toInt() }
+                                    searchedList = state.value.allBooks.sortedByDescending { it.bookPrice.toInt() }
                                 )
                             }
                         }
                         FilterTypes.PriceLow -> {
                             _state.update {
                                 it.copy(
-                                    searchedList = state.value.allFoods.sortedBy { it.foodPrice.toInt() }
+                                    searchedList = state.value.allBooks.sortedBy { it.bookPrice.toInt() }
                                 )
                             }
                         }
                         FilterTypes.Rating -> {
                             _state.update {
                                 it.copy(
-                                    searchedList = state.value.allFoods.sortedByDescending { it.foodRating }
+                                    searchedList = state.value.allBooks.sortedByDescending { it.bookRating }
                                 )
                             }
                         }
@@ -135,7 +135,7 @@ class AllFoodViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             searchQuery = event.value,
-                            searchedList = state.value.allFoods.filter { it.foodName.contains(event.value) }
+                            searchedList = state.value.allBooks.filter { it.bookName.contains(event.value) }
 
                         )
                     }
@@ -144,7 +144,7 @@ class AllFoodViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             searchQuery = "",
-                            searchedList = state.value.allFoods
+                            searchedList = state.value.allBooks
                         )
                     }
                 }

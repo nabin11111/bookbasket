@@ -421,12 +421,12 @@ fun AdminOrderDetailScreen(
                                                 horizontalAlignment = Alignment.End
                                             ) {
                                                 Text(
-                                                    text = orders.orderList.sumOf { it.quantity * it.foodNewPrice }
+                                                    text = orders.orderList.sumOf { it.quantity * it.bookNewPrice }
                                                         .toString(),
                                                     style = MaterialTheme.typography.headlineMedium
                                                 )
                                                 Text(
-                                                    text = orders.orderList.sumOf { it.quantity * it.foodPrice.toInt() }
+                                                    text = orders.orderList.sumOf { it.quantity * it.bookPrice.toInt() }
                                                         .toString(),
                                                     style = MaterialTheme.typography.headlineSmall.copy(
                                                         textDecoration = TextDecoration.LineThrough,
@@ -475,11 +475,11 @@ fun AdminOrderDetailScreen(
                                             verticalArrangement = Arrangement.spacedBy(10.dp)
                                         ) {
                                             Text(
-                                                text = item.foodName,
+                                                text = item.bookName,
                                                 style = MaterialTheme.typography.headlineSmall
                                             )
                                             Text(
-                                                text = item.quantity.toString() + " * " + item.foodNewPrice.toString(),
+                                                text = item.quantity.toString() + " * " + item.bookNewPrice.toString(),
                                                 style = MaterialTheme.typography.titleMedium.copy(
                                                     fontWeight = FontWeight.SemiBold,
                                                     color = MaterialTheme.colorScheme.outline
@@ -487,7 +487,7 @@ fun AdminOrderDetailScreen(
                                             )
                                         }
                                         Text(
-                                            text = (item.quantity * item.foodNewPrice).toString(),
+                                            text = (item.quantity * item.bookNewPrice).toString(),
                                             style = MaterialTheme.typography.headlineMedium
                                         )
                                     }

@@ -38,7 +38,7 @@ class UserFavouriteViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             allFoods = dbUseCases.getAllFoods().filter { food ->
-                                allFavList.data.any { it.foodId == food.foodId }
+                                allFavList.data.any { it.bookId == food.bookId }
                             }
                         )
                     }

@@ -282,7 +282,7 @@ fun UserCartScreen(
                                     Checkbox(checked = food.isSelected, onCheckedChange = {
                                         event(
                                             UserCartEvent.ItemSelected(
-                                                isItemSelected = it, item = food.foodId
+                                                isItemSelected = it, item = food.bookId
                                             )
                                         )
 
@@ -297,7 +297,7 @@ fun UserCartScreen(
                                                 .clickable {
                                                     navController.navigate(
                                                         Destination.Screen.UserFoodOrderDescriptionScreen.route.replace(
-                                                            "{foodId}", food.foodId
+                                                            "{foodId}", food.bookId
                                                         )
                                                     )
                                                 },
@@ -310,14 +310,14 @@ fun UserCartScreen(
                                             ) {
                                                 Column {
                                                     Text(
-                                                        text = food.foodName,
+                                                        text = food.bookName,
                                                         style = MaterialTheme.typography.headlineMedium.copy(
                                                         ),
                                                         maxLines = 1,
                                                         overflow = TextOverflow.Ellipsis
                                                     )
                                                     Text(
-                                                        text = food.foodDetails,
+                                                        text = food.bookDetails,
                                                         maxLines = 2,
                                                         minLines = 2,
                                                         style = MaterialTheme.typography.bodyMedium.copy(
@@ -336,7 +336,7 @@ fun UserCartScreen(
                                                             verticalAlignment = Alignment.Bottom
                                                         ) {
                                                             Text(
-                                                                text = "${food.foodNewPrice * food.quantity}",
+                                                                text = "${food.bookNewPrice * food.quantity}",
                                                                 style = MaterialTheme.typography.bodyMedium.copy(
                                                                     color = Color.Red,
                                                                     fontWeight = FontWeight.Bold,
@@ -344,7 +344,7 @@ fun UserCartScreen(
                                                                 )
                                                             )
                                                             Text(
-                                                                text = "${food.foodPrice.toInt() * food.quantity}",
+                                                                text = "${food.bookPrice.toInt() * food.quantity}",
                                                                 style = MaterialTheme.typography.bodyMedium.copy(
                                                                     color = MaterialTheme.colorScheme.outline,
                                                                     fontWeight = FontWeight.SemiBold,
@@ -373,7 +373,7 @@ fun UserCartScreen(
                                                                     IconButton(onClick = {
                                                                         event(
                                                                             UserCartEvent.DecreaseQuantity(
-                                                                                foodId = food.foodId,
+                                                                                foodId = food.bookId,
                                                                                 food.quantity
                                                                             )
                                                                         )
@@ -401,7 +401,7 @@ fun UserCartScreen(
                                                                 IconButton(onClick = {
                                                                     event(
                                                                         UserCartEvent.IncreaseQuantity(
-                                                                            foodId = food.foodId,
+                                                                            foodId = food.bookId,
                                                                             food.quantity
                                                                         )
                                                                     )
@@ -482,7 +482,7 @@ fun UserCartScreen(
                                     )
                                 ) {
                                     append(state.cartItemList.filter { it.isSelected }
-                                        .sumOf { it.foodNewPrice * it.quantity }.toString())
+                                        .sumOf { it.bookNewPrice * it.quantity }.toString())
                                 }
 
                                 withStyle(
@@ -500,7 +500,7 @@ fun UserCartScreen(
                                         textDecoration = TextDecoration.LineThrough
                                     )
                                 ) {
-                                    append(state.cartItemList.filter { it.isSelected }.sumOf { it.foodPrice.toInt() * it.quantity }.toString())
+                                    append(state.cartItemList.filter { it.isSelected }.sumOf { it.bookPrice.toInt() * it.quantity }.toString())
                                 }
 
                             })
@@ -510,7 +510,7 @@ fun UserCartScreen(
                                         event(UserCartEvent.Checkout)
                                         navController.navigate(Destination.Screen.UserOrderCheckoutScreen.route.replace(
                                             "{totalCost}", state.cartItemList.filter { it.isSelected }
-                                                .sumOf { it.foodNewPrice * it.quantity }.toString()
+                                                .sumOf { it.bookNewPrice * it.quantity }.toString()
                                         ))
                                     }else{
                                         showProfileWarning = true

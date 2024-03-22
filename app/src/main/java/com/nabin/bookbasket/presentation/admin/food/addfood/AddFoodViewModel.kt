@@ -5,7 +5,7 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nabin.bookbasket.data.Resource
-import com.nabin.bookbasket.data.model.AddFoodRequest
+import com.nabin.bookbasket.data.model.AddBookRequest
 import com.nabin.bookbasket.data.model.ImageStorageDetails
 import com.nabin.bookbasket.domain.use_cases.firestore.FirestoreUseCases
 import com.nabin.bookbasket.domain.use_cases.storage.FirestorageUseCases
@@ -158,16 +158,16 @@ class AddFoodViewModel @Inject constructor(
 
 
                     val addFoodRequest = firestoreUseCases.addFood(
-                        data = AddFoodRequest(
-                            foodId = state.value.foodId,
-                            foodType = state.value.selectedFoodType,
-                            foodFamily = state.value.selectedFoodFamily,
-                            foodName = state.value.foodName,
-                            foodDetails = state.value.foodDetails,
-                            foodPrice = state.value.foodPrice,
-                            foodDiscount = state.value.foodDiscountPrice,
-                            foodNewPrice = state.value.foodPrice.toInt() - state.value.foodDiscountPrice.toInt(),
-                            foodRating = 0f,
+                        data = AddBookRequest(
+                            bookId = state.value.foodId,
+                            bookType = state.value.selectedFoodType,
+                            bookFamily = state.value.selectedFoodFamily,
+                            bookName = state.value.foodName,
+                            bookDetails = state.value.foodDetails,
+                            bookPrice = state.value.foodPrice,
+                            bookDiscount = state.value.foodDiscountPrice,
+                            bookNewPrice = state.value.foodPrice.toInt() - state.value.foodDiscountPrice.toInt(),
+                            bookRating = 0f,
                             date = LocalDateTime.now().format(
                                 DateTimeFormatter.ofPattern("yyyy-MM-dd")
                             ),

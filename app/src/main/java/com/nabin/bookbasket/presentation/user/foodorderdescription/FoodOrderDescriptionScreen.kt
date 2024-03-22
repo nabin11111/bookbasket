@@ -80,7 +80,7 @@ fun FoodOrderDescriptionScreen(
     foodId: String
 ) {
 
-    if (state.foodItemDetails.foodId.isBlank()) {
+    if (state.foodItemDetails.bookId.isBlank()) {
         onEvent(FoodOrderDescriptionEvent.GetFoodItemDetails(foodId))
     }
     var showProfileWarning by remember {
@@ -271,7 +271,7 @@ fun FoodOrderDescriptionScreen(
                             contentDescription = "",
                         )
                         Text(
-                            text = state.foodItemDetails.foodName,
+                            text = state.foodItemDetails.bookName,
                             style = MaterialTheme.typography.headlineSmall
                         )
                         Row(
@@ -279,7 +279,7 @@ fun FoodOrderDescriptionScreen(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             RatingBar(size = 15.dp,
-                                value = state.foodItemDetails.foodRating,
+                                value = state.foodItemDetails.bookRating,
                                 spaceBetween = 2.dp,
                                 style = RatingBarStyle.Default,
                                 onValueChange = {
@@ -293,16 +293,16 @@ fun FoodOrderDescriptionScreen(
                                 onClick = {
                                     onEvent(
                                         FoodOrderDescriptionEvent.SetFavourite(
-                                            foodId = state.foodItemDetails.foodId,
+                                            foodId = state.foodItemDetails.bookId,
                                             isFav = !state.favouriteList.contains(
-                                                FavouriteModel(state.foodItemDetails.foodId)
+                                                FavouriteModel(state.foodItemDetails.bookId)
                                             )
                                         )
                                     )
                                 }) {
                                 Icon(
                                     imageVector = Icons.Default.Favorite,
-                                    tint = if (state.favouriteList.contains(FavouriteModel(state.foodItemDetails.foodId))) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.outline,
+                                    tint = if (state.favouriteList.contains(FavouriteModel(state.foodItemDetails.bookId))) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.outline,
                                     contentDescription = "favourite"
                                 )
                             }
@@ -382,7 +382,7 @@ fun FoodOrderDescriptionScreen(
                             text = "About the food", style = MaterialTheme.typography.headlineSmall
                         )
                         Text(
-                            text = state.foodItemDetails.foodDetails,
+                            text = state.foodItemDetails.bookDetails,
                             style = MaterialTheme.typography.labelMedium.copy(MaterialTheme.colorScheme.outlineVariant)
                         )
 
@@ -402,7 +402,7 @@ fun FoodOrderDescriptionScreen(
                                     navController.navigate(
                                         Destination.Screen.UserOrderCheckoutScreen.route.replace(
                                             "{totalCost}",
-                                            (state.foodItemDetails.foodNewPrice * state.foodQuantity).toString()
+                                            (state.foodItemDetails.bookNewPrice * state.foodQuantity).toString()
                                         )
                                     )
                                 } else {
@@ -418,7 +418,7 @@ fun FoodOrderDescriptionScreen(
                             modifier = Modifier.weight(1f),
                             elevation = ButtonDefaults.buttonElevation(10.dp),
                             onClick = {
-                                onEvent(FoodOrderDescriptionEvent.AddToCart(state.foodItemDetails.foodId))
+                                onEvent(FoodOrderDescriptionEvent.AddToCart(state.foodItemDetails.bookId))
                             },
                             enabled = true
                         ) {

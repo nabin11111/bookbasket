@@ -95,7 +95,7 @@ fun UserFavouriteScreen(
                 when (page) {
                     0 -> {
                         LazyColumn(modifier = Modifier.fillMaxSize(), content = {
-                            items(state.allFoods.filter { it.foodType != "Drinks" }) { foodDetails ->
+                            items(state.allFoods.filter { it.bookType != "Drinks" }) { foodDetails ->
                                 Box(modifier = Modifier.padding(horizontal = 25.dp)) {
                                     Card(
                                         modifier = Modifier
@@ -119,7 +119,7 @@ fun UserFavouriteScreen(
                                             verticalArrangement = Arrangement.Bottom
                                         ) {
                                                 Text(
-                                                    text = foodDetails.foodName,
+                                                    text = foodDetails.bookName,
                                                     modifier = Modifier,
                                                     style = MaterialTheme.typography.headlineSmall.copy(
                                                         color = MaterialTheme.colorScheme.onPrimaryContainer
@@ -128,7 +128,7 @@ fun UserFavouriteScreen(
 
                                             Text(
                                                 modifier = Modifier.fillMaxWidth(0.7f),
-                                                text = foodDetails.foodDetails,
+                                                text = foodDetails.bookDetails,
                                                 style = MaterialTheme.typography.bodyMedium.copy(
                                                     fontWeight = FontWeight.SemiBold,
                                                     color = MaterialTheme.colorScheme.outline
@@ -166,7 +166,7 @@ fun UserFavouriteScreen(
                                             IconButton(
                                                 onClick = {
                                                     event(
-                                                        UserFavouriteEvent.RemoveFavourite(id = foodDetails.foodId)
+                                                        UserFavouriteEvent.RemoveFavourite(id = foodDetails.bookId)
                                                     )
                                                 }) {
                                                 Icon(
@@ -196,7 +196,7 @@ fun UserFavouriteScreen(
                                         onClick = {
                                             navController.navigate(
                                                 Destination.Screen.UserFoodOrderDescriptionScreen.route.replace(
-                                                    "{foodId}", foodDetails.foodId
+                                                    "{foodId}", foodDetails.bookId
                                                 )
                                             )
                                         }) {
@@ -215,7 +215,7 @@ fun UserFavouriteScreen(
 
                     1 -> {
                         LazyColumn(modifier = Modifier.fillMaxSize(), content = {
-                            items(state.allFoods.filter { it.foodType == "Drinks" }) { foodDetails ->
+                            items(state.allFoods.filter { it.bookType == "Drinks" }) { foodDetails ->
                                 Box(modifier = Modifier.padding(horizontal = 25.dp)) {
                                     Card(
                                         modifier = Modifier
@@ -240,7 +240,7 @@ fun UserFavouriteScreen(
                                         ) {
                                             Row(verticalAlignment = Alignment.CenterVertically) {
                                                 Text(
-                                                    text = foodDetails.foodName,
+                                                    text = foodDetails.bookName,
                                                     modifier = Modifier,
                                                     style = MaterialTheme.typography.headlineSmall.copy(
                                                         color = MaterialTheme.colorScheme.onPrimaryContainer
@@ -259,7 +259,7 @@ fun UserFavouriteScreen(
 
                                             Text(
                                                 modifier = Modifier.fillMaxWidth(0.7f),
-                                                text = foodDetails.foodDetails,
+                                                text = foodDetails.bookDetails,
                                                 style = MaterialTheme.typography.bodyMedium.copy(
                                                     fontWeight = FontWeight.SemiBold,
                                                     color = MaterialTheme.colorScheme.outline
@@ -298,7 +298,7 @@ fun UserFavouriteScreen(
                                             modifier = Modifier.padding(end = 5.dp),
                                             onClick = {
                                                 event(
-                                                    UserFavouriteEvent.RemoveFavourite(id = foodDetails.foodId)
+                                                    UserFavouriteEvent.RemoveFavourite(id = foodDetails.bookId)
                                                 )
                                             }) {
                                             Icon(

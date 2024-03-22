@@ -172,7 +172,7 @@ fun UserFoodCategoryScreen(
                             FlowRow(
                                 horizontalArrangement = Arrangement.spacedBy(5.dp)
                             ) {
-                                state.allFoods.filter { it.foodFamily == foodType }
+                                state.allFoods.filter { it.bookFamily == foodType }
                                     .forEach { foodItem ->
                                         Spacer(modifier = Modifier.height(5.dp))
                                         Box(
@@ -187,7 +187,7 @@ fun UserFoodCategoryScreen(
                                                     .clickable {
                                                         navController.navigate(
                                                             Destination.Screen.UserFoodOrderDescriptionScreen.route.replace(
-                                                                "{foodId}", foodItem.foodId
+                                                                "{foodId}", foodItem.bookId
                                                             )
                                                         )
                                                     },
@@ -212,7 +212,7 @@ fun UserFoodCategoryScreen(
 
                                                 Text(
                                                     modifier = Modifier.fillMaxWidth(),
-                                                    text = foodItem.foodName,
+                                                    text = foodItem.bookName,
                                                     style = MaterialTheme.typography.headlineSmall.copy(
                                                         textAlign = TextAlign.Center
                                                     ),
@@ -223,7 +223,7 @@ fun UserFoodCategoryScreen(
                                                 RatingBar(
                                                     modifier = Modifier.align(Alignment.CenterHorizontally),
                                                     size = 15.dp,
-                                                    value = foodItem.foodRating,
+                                                    value = foodItem.bookRating,
                                                     style = RatingBarStyle.Default,
                                                     onValueChange = {},
                                                     onRatingChanged = {},
@@ -237,7 +237,7 @@ fun UserFoodCategoryScreen(
                                                 colors = CardDefaults.cardColors(MaterialTheme.colorScheme.primary)
                                             ) {
                                                 Text(
-                                                    text = "Rs ${foodItem.foodPrice}",
+                                                    text = "Rs ${foodItem.bookPrice}",
                                                     modifier = Modifier.padding(horizontal = 15.dp),
                                                     style = MaterialTheme.typography.titleSmall.copy(
                                                         color = Color.White

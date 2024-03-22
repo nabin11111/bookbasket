@@ -2,16 +2,16 @@ package com.nabin.bookbasket.data.repositoryImpl
 
 import com.nabin.bookbasket.data.Resource
 import com.nabin.bookbasket.data.local.Preference
-import com.nabin.bookbasket.data.model.AddFoodRequest
+import com.nabin.bookbasket.data.model.AddBookRequest
 import com.nabin.bookbasket.data.model.FavouriteModel
 import com.nabin.bookbasket.data.model.GetCartItemModel
 import com.nabin.bookbasket.data.model.RatingRequestResponse
-import com.nabin.bookbasket.data.model.GetFoodResponse
+import com.nabin.bookbasket.data.model.GetBookResponse
 import com.nabin.bookbasket.data.model.ProfileRequestResponse
 import com.nabin.bookbasket.data.model.SetLatLng
 import com.nabin.bookbasket.data.model.StoreNotificationRequestResponse
 import com.nabin.bookbasket.domain.model.SetOneSignalId
-import com.nabin.bookbasket.data.model.order.RequestFoodOrder
+import com.nabin.bookbasket.data.model.order.RequestBookOrder
 import com.nabin.bookbasket.domain.repository.FirestoreRepository
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
@@ -21,7 +21,7 @@ import javax.inject.Inject
 class FirestoreRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore, private val preference: Preference
 ) : FirestoreRepository {
-    override suspend fun orderFood(data: RequestFoodOrder): Resource<Boolean> {
+    override suspend fun orderFood(data: RequestBookOrder): Resource<Boolean> {
         return try {
 //            withContext(Dispatchers.IO) {
 //                data.map { order ->
@@ -73,7 +73,7 @@ class FirestoreRepositoryImpl @Inject constructor(
     override suspend fun rating(data: RatingRequestResponse): Resource<Boolean> {
         return try {
             firestore.collection("admin").document("foods").collection("foods")
-                .document(data.foodId).collection("rating").document(data.userMail).set(data)
+                .document(data.bookId).collection("rating").document(data.userMail).set(data)
                 .await()
             Resource.Success(true)
         } catch (e: Exception) {
@@ -82,13 +82,13 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getFoods(): Resource<List<GetFoodResponse>> {
+    override suspend fun getFoods(): Resource<List<GetBookResponse>> {
         return try {
-            val foodResponse = mutableListOf<GetFoodResponse>()
+            val foodResponse = mutableListOf<GetBookResponse>()
             val documentRef =
                 firestore.collection("admin").document("foods").collection("foods").get().await()
             for (document in documentRef.documents) {
-                val data = document.toObject<GetFoodResponse>()
+                val data = document.toObject<GetBookResponse>()
                 data?.let {
                     foodResponse.add(data)
                 }
@@ -100,13 +100,13 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getFoodItem(foodId: String): Resource<GetFoodResponse> {
+    override suspend fun getFoodItem(foodId: String): Resource<GetBookResponse> {
         return try {
-            val foodItem: GetFoodResponse
+            val foodItem: GetBookResponse
             val document =
                 firestore.collection("admin").document("foods").collection("foods").document(foodId)
-                    .get().await().toObject<GetFoodResponse>()
-            foodItem = document ?: GetFoodResponse()
+                    .get().await().toObject<GetBookResponse>()
+            foodItem = document ?: GetBookResponse()
             Resource.Success(foodItem)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -114,18 +114,18 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getFoodsForUpdate(): Resource<List<GetFoodResponse>> {
+    override suspend fun getFoodsForUpdate(): Resource<List<GetBookResponse>> {
         return try {
-            val foodResponse = mutableListOf<GetFoodResponse>()
+            val foodResponse = mutableListOf<GetBookResponse>()
             val ratingResponseList = mutableListOf<RatingRequestResponse>()
             val documentRef =
                 firestore.collection("admin").document("foods").collection("foods").get().await()
             for (document in documentRef.documents) {
-                val data = document.toObject<GetFoodResponse>()
+                val data = document.toObject<GetBookResponse>()
                 data?.let {
                     val ratingRef =
                         firestore.collection("admin").document("foods").collection("foods")
-                            .document(it.foodId).collection("rating").get().await()
+                            .document(it.bookId).collection("rating").get().await()
 
                     for (documentRating in ratingRef.documents) {
                         val newData = documentRating.toObject<RatingRequestResponse>()
@@ -135,7 +135,7 @@ class FirestoreRepositoryImpl @Inject constructor(
                     }
                     val newValue = ratingResponseList.sumOf { it.rateValue.toInt() }
                         .toFloat() / ratingResponseList.size.toFloat()
-                    foodResponse.add(data.copy(newFoodRating = newValue))
+                    foodResponse.add(data.copy(newBookRating = newValue))
                 }
                 ratingResponseList.clear()
             }
@@ -153,7 +153,7 @@ class FirestoreRepositoryImpl @Inject constructor(
     override suspend fun addToCart(foodItem: GetCartItemModel): Resource<Boolean> {
         return try {
             firestore.collection("users").document(preference.tableName!!).collection("myCart")
-                .document(foodItem.foodId).set(foodItem).await()
+                .document(foodItem.bookId).set(foodItem).await()
             Resource.Success(true)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -195,13 +195,13 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getMyHistory(): Resource<List<RequestFoodOrder>> {
+    override suspend fun getMyHistory(): Resource<List<RequestBookOrder>> {
         return try {
-            val orderList = mutableListOf<RequestFoodOrder>()
+            val orderList = mutableListOf<RequestBookOrder>()
             val querySnapshot = firestore.collection("users").document(preference.tableName ?: "")
                 .collection("history").get().await()
             for (document in querySnapshot.documents) {
-                val order = document.toObject<RequestFoodOrder>()
+                val order = document.toObject<RequestBookOrder>()
                 order?.let {
                     orderList.add(it)
                 }
@@ -454,14 +454,14 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getFoodOrderDetails(user: String): Resource<List<RequestFoodOrder>> {
+    override suspend fun getFoodOrderDetails(user: String): Resource<List<RequestBookOrder>> {
         return try {
-            val orderDetailsList = mutableListOf<RequestFoodOrder>()
+            val orderDetailsList = mutableListOf<RequestBookOrder>()
             val documentRef =
                 firestore.collection("admin").document("foods").collection("orders").document(user)
                     .collection("orderDetails").get().await()
             for (document in documentRef.documents) {
-                val data = document.toObject<RequestFoodOrder>()
+                val data = document.toObject<RequestBookOrder>()
                 data?.let {
                     orderDetailsList.add(data)
                 }
@@ -473,10 +473,10 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun addFood(data: AddFoodRequest): Resource<Boolean> {
+    override suspend fun addFood(data: AddBookRequest): Resource<Boolean> {
         return try {
             firestore.collection("admin").document("foods").collection("foods")
-                .document(data.foodId).set(data).await()
+                .document(data.bookId).set(data).await()
             Resource.Success(true)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -484,7 +484,7 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun orderDelivered(data: RequestFoodOrder): Resource<Boolean> {
+    override suspend fun orderDelivered(data: RequestBookOrder): Resource<Boolean> {
         return try {
             var isTrue = false
             val ref = firestore.collection("admin").document("foods").collection("orders")
@@ -518,7 +518,7 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun updateUserHistory(data: RequestFoodOrder): Resource<Boolean> {
+    override suspend fun updateUserHistory(data: RequestBookOrder): Resource<Boolean> {
         return try {
             var isTrue = false
             val ref = firestore.collection("users").document(data.userMail).collection("history")
@@ -534,7 +534,7 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun updateDeliveredHistroy(data: RequestFoodOrder): Resource<Boolean> {
+    override suspend fun updateDeliveredHistroy(data: RequestBookOrder): Resource<Boolean> {
         return try {
             var isTrue = false
             val ref = firestore.collection("admin").document("foods").collection("orderHistory")
@@ -587,16 +587,16 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getAdminHistories(): Resource<List<RequestFoodOrder>> {
+    override suspend fun getAdminHistories(): Resource<List<RequestBookOrder>> {
         return try {
-            var list = mutableListOf<RequestFoodOrder>()
+            var list = mutableListOf<RequestBookOrder>()
             val ref = firestore.collection("admin")
                 .document("foods")
                 .collection("orderHistory")
                 .get()
                 .await()
             for (document in ref.documents){
-                val data = document.toObject<RequestFoodOrder>()
+                val data = document.toObject<RequestBookOrder>()
                 data?.let {
                     list.add(it)
                 }

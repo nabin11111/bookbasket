@@ -119,12 +119,12 @@ class FoodOrderDescriptionViewModel @Inject constructor(
                 }
 
                 is FoodOrderDescriptionEvent.GetFoodItemDetails -> {
-                    val data = dbUseCases.getAllFoods().find { it.foodId == event.value }!!
+                    val data = dbUseCases.getAllFoods().find { it.bookId == event.value }!!
                     _state.update {
                         it.copy(
                             foodItemDetails = data,
-                            foodPrice = data.foodPrice.toInt() - data.foodDiscount.toInt(),
-                            foodDiscount = data.foodPrice.toInt()
+                            foodPrice = data.bookPrice.toInt() - data.bookDiscount.toInt(),
+                            foodDiscount = data.bookPrice.toInt()
                         )
                     }
                 }
@@ -149,17 +149,17 @@ class FoodOrderDescriptionViewModel @Inject constructor(
                     dbUseCases.insertAllCheckoutFoodList(
                         checkList = listOf(
                             CheckoutFoods(
-                                foodId = state.value.foodItemDetails.foodId,
-                                foodType = state.value.foodItemDetails.foodType,
-                                foodFamily = state.value.foodItemDetails.foodFamily,
-                                foodName = state.value.foodItemDetails.foodName,
-                                foodDetails = state.value.foodItemDetails.foodDetails,
-                                foodPrice = state.value.foodItemDetails.foodPrice,
-                                foodDiscount = state.value.foodItemDetails.foodDiscount,
-                                foodNewPrice = state.value.foodItemDetails.foodNewPrice,
+                                foodId = state.value.foodItemDetails.bookId,
+                                foodType = state.value.foodItemDetails.bookType,
+                                foodFamily = state.value.foodItemDetails.bookFamily,
+                                foodName = state.value.foodItemDetails.bookName,
+                                foodDetails = state.value.foodItemDetails.bookDetails,
+                                foodPrice = state.value.foodItemDetails.bookPrice,
+                                foodDiscount = state.value.foodItemDetails.bookDiscount,
+                                foodNewPrice = state.value.foodItemDetails.bookNewPrice,
                                 isSelected = true,
-                                foodRating = state.value.foodItemDetails.foodRating,
-                                newFoodRating = state.value.foodItemDetails.newFoodRating,
+                                foodRating = state.value.foodItemDetails.bookRating,
+                                newFoodRating = state.value.foodItemDetails.newBookRating,
                                 quantity = state.value.foodQuantity,
                                 date = CurrentDateTimeSDF(),
                                 faceImgName = state.value.foodItemDetails.faceImgName,
@@ -185,8 +185,8 @@ class FoodOrderDescriptionViewModel @Inject constructor(
                     }
                     when (firestoreUseCases.addToCart(
                         foodItem = GetCartItemModel(
-                            foodId = state.value.foodItemDetails.foodId,
-                            foodQuantity = state.value.foodQuantity,
+                            bookId = state.value.foodItemDetails.bookId,
+                            bookQuantity = state.value.foodQuantity,
                             date = LocalDateTime.now().format(
                                 DateTimeFormatter.ofPattern("yyyy-MM-dd")
                             )

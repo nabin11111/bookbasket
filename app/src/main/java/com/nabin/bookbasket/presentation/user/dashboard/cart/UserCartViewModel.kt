@@ -69,10 +69,10 @@ class UserCartViewModel @Inject constructor(
                     println(cartItemList)
                     _state.update {
                         it.copy(cartItemList = allFoods.filter { food ->
-                            cartItemList.data.any { it.foodId == food.foodId }
+                            cartItemList.data.any { it.bookId == food.bookId }
                         }.map { food ->
                             val updatedQuantity =
-                                cartItemList.data.find { it.foodId == food.foodId }?.foodQuantity
+                                cartItemList.data.find { it.bookId == food.bookId }?.bookQuantity
                                     ?: food.quantity
                             food.copy(quantity = updatedQuantity)
                         }.toMutableList()
@@ -108,7 +108,7 @@ class UserCartViewModel @Inject constructor(
                     }
                     for (food in state.value.cartItemList) {
                         if (food.isSelected) {
-                            firestoreUseCases.deleteCartItem(food.foodId)
+                            firestoreUseCases.deleteCartItem(food.bookId)
                         }
                     }
                     _state.update {
@@ -123,7 +123,7 @@ class UserCartViewModel @Inject constructor(
                 is UserCartEvent.DecreaseQuantity -> {
                     _state.update {
                         it.copy(cartItemList = state.value.cartItemList.map { food ->
-                            if (food.foodId == event.foodId) {
+                            if (food.bookId == event.foodId) {
                                 food.copy(quantity = event.lastValue - 1)
                             } else {
                                 food
@@ -135,7 +135,7 @@ class UserCartViewModel @Inject constructor(
                 is UserCartEvent.IncreaseQuantity -> {
                     _state.update {
                         it.copy(cartItemList = state.value.cartItemList.map { food ->
-                            if (food.foodId == event.foodId) {
+                            if (food.bookId == event.foodId) {
                                 food.copy(quantity = event.lastValue + 1)
                             } else {
                                 food
@@ -155,7 +155,7 @@ class UserCartViewModel @Inject constructor(
                 is UserCartEvent.ItemSelected -> {
                     _state.update {
                         it.copy(cartItemList = state.value.cartItemList.map { food ->
-                            if (food.foodId == event.item) {
+                            if (food.bookId == event.item) {
                                 food.copy(isSelected = event.isItemSelected)
                             } else {
                                 food
@@ -169,17 +169,17 @@ class UserCartViewModel @Inject constructor(
                     dbUseCases.insertAllCheckoutFoodList(checkList = state.value.cartItemList.filter { it.isSelected }
                         .map {
                             CheckoutFoods(
-                                foodId = it.foodId,
-                                foodType = it.foodType,
-                                foodFamily = it.foodFamily,
-                                foodName = it.foodName,
-                                foodDetails = it.foodDetails,
-                                foodPrice = it.foodPrice,
-                                foodDiscount = it.foodDiscount,
-                                foodNewPrice = it.foodNewPrice,
+                                foodId = it.bookId,
+                                foodType = it.bookType,
+                                foodFamily = it.bookFamily,
+                                foodName = it.bookName,
+                                foodDetails = it.bookDetails,
+                                foodPrice = it.bookPrice,
+                                foodDiscount = it.bookDiscount,
+                                foodNewPrice = it.bookNewPrice,
                                 isSelected = it.isSelected,
-                                foodRating = it.foodRating,
-                                newFoodRating = it.newFoodRating,
+                                foodRating = it.bookRating,
+                                newFoodRating = it.newBookRating,
                                 quantity = it.quantity,
                                 date = it.date,
                                 faceImgName = it.faceImgName,

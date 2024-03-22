@@ -81,7 +81,7 @@ class UserHistoryViewModel @Inject constructor(
                         data = RatingRequestResponse(
                             userName = preference.userName ?: "",
                             userMail = preference.tableName ?: "",
-                            foodId = event.id,
+                            bookId = event.id,
                             rateValue = event.value,
                             url = event.url
                         )

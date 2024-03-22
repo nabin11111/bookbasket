@@ -200,7 +200,7 @@ fun AllFoodScreen(
 
                                 Text(
                                     modifier = Modifier.fillMaxWidth(),
-                                    text = foodItem.foodName,
+                                    text = foodItem.bookName,
                                     style = MaterialTheme.typography.headlineSmall.copy(
                                         textAlign = TextAlign.Center
                                     ),
@@ -209,7 +209,7 @@ fun AllFoodScreen(
                                 RatingBar(
                                     modifier = Modifier.align(Alignment.CenterHorizontally),
                                     size = 15.dp,
-                                    value = foodItem.foodRating,
+                                    value = foodItem.bookRating,
                                     style = RatingBarStyle.Default,
                                     onValueChange = {},
                                     onRatingChanged = {},
@@ -223,7 +223,7 @@ fun AllFoodScreen(
                                 colors = CardDefaults.cardColors(MaterialTheme.colorScheme.primary)
                             ) {
                                 Text(
-                                    text = "Rs ${foodItem.foodPrice}",
+                                    text = "Rs ${foodItem.bookPrice}",
                                     modifier = Modifier.padding(horizontal = 15.dp),
                                     style = MaterialTheme.typography.titleSmall.copy(color = Color.White)
                                 )
@@ -234,7 +234,7 @@ fun AllFoodScreen(
                                 onClick = {
                                     nav.navigate(
                                         Destination.Screen.AdminEditFoodScreen.route.replace(
-                                            "{foodId}", foodItem.foodId
+                                            "{foodId}", foodItem.bookId
                                         )
                                     )
                                 }) {

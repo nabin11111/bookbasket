@@ -1,7 +1,7 @@
 package com.nabin.bookbasket.presentation.user.later
 
-import com.nabin.bookbasket.data.model.GetFoodResponse
+import com.nabin.bookbasket.data.model.GetBookResponse
 
 data class MoreFoodState(
-    val allFoodList: List<GetFoodResponse> = emptyList()
+    val allFoodList: List<GetBookResponse> = emptyList()
 )

@@ -28,7 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.nabin.bookbasket.data.model.GetFoodResponse
+import com.nabin.bookbasket.data.model.GetBookResponse
 import com.nabin.bookbasket.presentation.common.components.dialogs.MessageDialog
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -97,11 +97,11 @@ fun RatingUpdateScreen(
 @Composable
 fun UpdateRatingItem(
     modifier: Modifier = Modifier,
-    data: GetFoodResponse,
+    data: GetBookResponse,
     onClick: (String,Float) -> Unit,
 ) {
     var lastRatingValue by remember{
-        mutableFloatStateOf(data.foodRating)
+        mutableFloatStateOf(data.bookRating)
     }
     Card(
         modifier = modifier,
@@ -114,13 +114,13 @@ fun UpdateRatingItem(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = data.foodName, style = MaterialTheme.typography.headlineSmall
+                text = data.bookName, style = MaterialTheme.typography.headlineSmall
             )
             Text(
-                text = data.foodFamily, style = MaterialTheme.typography.titleMedium
+                text = data.bookFamily, style = MaterialTheme.typography.titleMedium
             )
             Text(
-                text = data.foodType, style = MaterialTheme.typography.titleMedium
+                text = data.bookType, style = MaterialTheme.typography.titleMedium
             )
         }
         Row(
@@ -132,13 +132,13 @@ fun UpdateRatingItem(
         ) {
             Text(text = lastRatingValue.toString(), style = MaterialTheme.typography.headlineSmall)
             Text(
-                text = data.newFoodRating.toString(), style = MaterialTheme.typography.headlineSmall
+                text = data.newBookRating.toString(), style = MaterialTheme.typography.headlineSmall
             )
             Button(
-                enabled = !data.newFoodRating.isNaN(),
+                enabled = !data.newBookRating.isNaN(),
                 onClick = {
-                lastRatingValue = data.newFoodRating
-                onClick(data.foodId,data.newFoodRating)
+                lastRatingValue = data.newBookRating
+                onClick(data.bookId,data.newBookRating)
             }) {
                 Text(text = "Update")
             }

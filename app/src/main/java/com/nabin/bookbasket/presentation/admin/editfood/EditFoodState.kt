@@ -1,12 +1,12 @@
 package com.nabin.bookbasket.presentation.admin.editfood
 
-import com.nabin.bookbasket.domain.model.AllFoods
+import com.nabin.bookbasket.domain.model.AllBooks
 import com.nabin.bookbasket.presentation.admin.food.addfood.ImageUrlDetail
 import com.nabin.bookbasket.presentation.common.components.OrderDeliveryScreenState
 import com.nabin.bookbasket.presentation.common.components.dialogs.Message
 
 data class EditFoodState(
-    val foodItemDetails : AllFoods = AllFoods(),
+    val foodItemDetails : AllBooks = AllBooks(),
     val foodTypes: List<String> =  listOf("Regular", "Popular","New","Drinks"),
     val selectedFoodType: String = foodTypes[0],
 

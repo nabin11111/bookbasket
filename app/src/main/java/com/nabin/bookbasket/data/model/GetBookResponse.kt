@@ -1,16 +1,16 @@
 package com.nabin.bookbasket.data.model
 
-data class GetFoodResponse(
-    val foodId: String = "",
-    val foodType: String = "",
-    val foodFamily: String = "",
-    val foodName: String = "",
-    val foodDetails: String = "",
-    val foodPrice: String = "",
-    val foodDiscount: String = "",
-    val foodNewPrice: Int = 0,
-    val foodRating: Float = 0f,
-    val newFoodRating: Float = 0f,
+data class GetBookResponse(
+    val bookId: String = "",
+    val bookType: String = "",
+    val bookFamily: String = "",
+    val bookName: String = "",
+    val bookDetails: String = "",
+    val bookPrice: String = "",
+    val bookDiscount: String = "",
+    val bookNewPrice: Int = 0,
+    val bookRating: Float = 0f,
+    val newBookRating: Float = 0f,
     val date: String = "",
 
 

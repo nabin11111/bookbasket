@@ -1,7 +1,7 @@
 package com.nabin.bookbasket.presentation.user.foodorderdescription
 
 import com.nabin.bookbasket.data.model.FavouriteModel
-import com.nabin.bookbasket.domain.model.AllFoods
+import com.nabin.bookbasket.domain.model.AllBooks
 import com.nabin.bookbasket.presentation.common.components.OrderDeliveryScreenState
 import com.nabin.bookbasket.presentation.common.components.dialogs.Message
 
@@ -10,7 +10,7 @@ data class FoodOrderDescriptionState(
     val deliveryStateShowDialog: Boolean = true,
     val phoneNo : String = "",
     val location : String = "",
-    val foodItemDetails : AllFoods = AllFoods(),
+    val foodItemDetails : AllBooks = AllBooks(),
     val foodPrice: Int = 0,
     val foodDiscount: Int = 0,
     val foodQuantity: Int = 1,

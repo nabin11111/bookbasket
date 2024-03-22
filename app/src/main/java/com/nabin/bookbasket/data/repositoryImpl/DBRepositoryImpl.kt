@@ -1,7 +1,7 @@
 package com.nabin.bookbasket.data.repositoryImpl
 
 import com.nabin.bookbasket.data.data_source.AllFoodsDao
-import com.nabin.bookbasket.domain.model.AllFoods
+import com.nabin.bookbasket.domain.model.AllBooks
 import com.nabin.bookbasket.domain.model.CheckoutFoods
 import com.nabin.bookbasket.domain.model.SetOneSignalId
 import com.nabin.bookbasket.domain.repository.DBRepository
@@ -9,11 +9,11 @@ import com.nabin.bookbasket.domain.repository.DBRepository
 class DBRepositoryImpl(
     private val dao: AllFoodsDao
 ) : DBRepository{
-    override suspend fun getAllFoods(): List<AllFoods> {
+    override suspend fun getAllFoods(): List<AllBooks> {
         return dao.getAllFoods()
     }
 
-    override suspend fun insertFoodList(noteList: List<AllFoods>) {
+    override suspend fun insertFoodList(noteList: List<AllBooks>) {
         dao.insertFoodList(noteList)
     }
 

@@ -8,7 +8,7 @@ import com.nabin.bookbasket.data.local.Preference
 import com.nabin.bookbasket.data.model.PushNotificationRequest
 import com.nabin.bookbasket.data.model.RealtimeModelResponse
 import com.nabin.bookbasket.data.model.SetLatLng
-import com.nabin.bookbasket.data.model.order.RequestFoodOrder
+import com.nabin.bookbasket.data.model.order.RequestBookOrder
 import com.nabin.bookbasket.domain.repository.OneSignalRepository
 import com.nabin.bookbasket.domain.use_cases.db.DBUseCases
 import com.nabin.bookbasket.domain.use_cases.firestore.FirestoreUseCases
@@ -226,7 +226,7 @@ class OrderCheckoutViewModel @Inject constructor(
                             if (setAddress.data) {
                                 val orderRequest =
                                     firestoreUseCases.orderFood(
-                                        data = RequestFoodOrder(
+                                        data = RequestBookOrder(
                                             orderId = System.currentTimeMillis().toString(),
                                             locationLat = location.first(),
                                             locationLng = location.last(),
@@ -242,18 +242,18 @@ class OrderCheckoutViewModel @Inject constructor(
                                             dateTime = CurrentDateTimeSDF(),
                                             branch = state.value.branch,
                                             orderList = state.value.orderList.map { food ->
-                                                RequestFoodOrder.OrderedList(
-                                                    foodId = food.foodId,
-                                                    foodType = food.foodType,
-                                                    foodFamily = food.foodFamily,
-                                                    foodName = food.foodName,
-                                                    foodDetails = food.foodDetails,
-                                                    foodPrice = food.foodPrice,
-                                                    foodDiscount = food.foodDiscount,
-                                                    foodNewPrice = food.foodNewPrice,
+                                                RequestBookOrder.OrderedList(
+                                                    bookId = food.foodId,
+                                                    bookType = food.foodType,
+                                                    bookFamily = food.foodFamily,
+                                                    bookName = food.foodName,
+                                                    bookDetails = food.foodDetails,
+                                                    bookPrice = food.foodPrice,
+                                                    bookDiscount = food.foodDiscount,
+                                                    bookNewPrice = food.foodNewPrice,
                                                     isSelected = food.isSelected,
                                                     foodRating = food.foodRating,
-                                                    newFoodRating = food.newFoodRating,
+                                                    newBookRating = food.newFoodRating,
                                                     quantity = food.quantity,
                                                     date = CurrentDateTimeSDF(),
                                                     faceImgName = food.faceImgName,

@@ -130,7 +130,7 @@ fun UserHomeScreen(
                         }
                     }
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(15.dp), content = {
-                        items(state.allFoods.filterNot { it.foodType == "Drinks" }) { foodItem ->
+                        items(state.allFoods.filterNot { it.bookType == "Drinks" }) { foodItem ->
                             Column(
                                 modifier = Modifier, horizontalAlignment = Alignment.CenterHorizontally
                             ) {
@@ -138,7 +138,7 @@ fun UserHomeScreen(
                                     modifier = Modifier.clickable {
                                         navController.navigate(
                                             Destination.Screen.UserFoodOrderDescriptionScreen.route.replace(
-                                                "{foodId}", foodItem.foodId
+                                                "{foodId}", foodItem.bookId
                                             )
                                         )
                                     }, colors = CardDefaults.cardColors(Color.Transparent)
@@ -156,7 +156,7 @@ fun UserHomeScreen(
                                         modifier = Modifier.width(100.dp),
                                         maxLines = 1,
                                         overflow = TextOverflow.Ellipsis,
-                                        text = foodItem.foodName,
+                                        text = foodItem.bookName,
                                         textAlign = TextAlign.Center,
                                         style = MaterialTheme.typography.bodyMedium.copy(
                                             fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center
@@ -199,7 +199,7 @@ fun UserHomeScreen(
 
                     }
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(15.dp), content = {
-                        items(state.allFoods.filter { it.foodType == "Popular" } .sortedBy { it.foodRating }) { foodItem ->
+                        items(state.allFoods.filter { it.bookType == "Popular" } .sortedBy { it.bookRating }) { foodItem ->
                             Box(
                                 modifier = Modifier
                                     .padding(5.dp)
@@ -213,7 +213,7 @@ fun UserHomeScreen(
                                         .clickable {
                                             navController.navigate(
                                                 Destination.Screen.UserFoodOrderDescriptionScreen.route.replace(
-                                                    "{foodId}", foodItem.foodId
+                                                    "{foodId}", foodItem.bookId
                                                 )
                                             )
                                         },
@@ -238,7 +238,7 @@ fun UserHomeScreen(
 
                                     Text(
                                         modifier = Modifier.fillMaxWidth(),
-                                        text = foodItem.foodName,
+                                        text = foodItem.bookName,
                                         style = MaterialTheme.typography.headlineSmall.copy(
                                             textAlign = TextAlign.Center
                                         ),
@@ -247,7 +247,7 @@ fun UserHomeScreen(
                                     RatingBar(
                                         modifier = Modifier.align(Alignment.CenterHorizontally),
                                         size = 15.dp,
-                                        value = foodItem.foodRating,
+                                        value = foodItem.bookRating,
                                         style = RatingBarStyle.Default,
                                         onValueChange = {},
                                         onRatingChanged = {},
@@ -261,7 +261,7 @@ fun UserHomeScreen(
                                     colors = CardDefaults.cardColors(MaterialTheme.colorScheme.primary)
                                 ) {
                                     Text(
-                                        text = "Rs ${foodItem.foodPrice}",
+                                        text = "Rs ${foodItem.bookPrice}",
                                         modifier = Modifier.padding(horizontal = 15.dp),
                                         style = MaterialTheme.typography.titleSmall.copy(color = Color.White)
                                     )
@@ -270,11 +270,11 @@ fun UserHomeScreen(
                                     .align(Alignment.TopEnd)
                                     .padding(end = 5.dp),
                                     onClick = {
-                                        event(UserHomeEvent.SetFavourite(foodId = foodItem.foodId,isFav = !state.favouriteList.contains(FavouriteModel(foodItem.foodId))))
+                                        event(UserHomeEvent.SetFavourite(foodId = foodItem.bookId,isFav = !state.favouriteList.contains(FavouriteModel(foodItem.bookId))))
                                     }) {
                                     Icon(
                                         imageVector = Icons.Default.Favorite,
-                                        tint = if (state.favouriteList.contains(FavouriteModel(foodItem.foodId))) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.outline,
+                                        tint = if (state.favouriteList.contains(FavouriteModel(foodItem.bookId))) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.outline,
                                         contentDescription = "favourite"
                                     )
                                 }
@@ -330,7 +330,7 @@ fun UserHomeScreen(
 //                        }
                     }
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(15.dp), content = {
-                        items(state.allFoods.filter { it.foodType =="Drinks" }) { foodItem ->
+                        items(state.allFoods.filter { it.bookType =="Drinks" }) { foodItem ->
                             Column(
                                 modifier = Modifier, horizontalAlignment = Alignment.CenterHorizontally
                             ) {
@@ -338,7 +338,7 @@ fun UserHomeScreen(
                                     modifier = Modifier.clickable {
                                         navController.navigate(
                                             Destination.Screen.UserFoodOrderDescriptionScreen.route.replace(
-                                                "{foodId}", foodItem.foodId
+                                                "{foodId}", foodItem.bookId
                                             )
                                         )                            },
                                     colors = CardDefaults.cardColors(Color.Transparent),
@@ -356,7 +356,7 @@ fun UserHomeScreen(
                                         modifier = Modifier.width(100.dp),
                                         maxLines = 1,
                                         overflow = TextOverflow.Ellipsis,
-                                        text = foodItem.foodName,
+                                        text = foodItem.bookName,
                                         textAlign = TextAlign.Center,
                                         style = MaterialTheme.typography.bodyMedium.copy(
                                             fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center

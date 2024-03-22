@@ -210,7 +210,7 @@ fun UserMoreScreen(
                                     .clickable {
                                         navController.navigate(
                                             Destination.Screen.UserFoodOrderDescriptionScreen.route.replace(
-                                                "{foodId}", foodItem.foodId
+                                                "{foodId}", foodItem.bookId
                                             )
                                         )
                                     },
@@ -235,7 +235,7 @@ fun UserMoreScreen(
 
                                 Text(
                                     modifier = Modifier.fillMaxWidth(),
-                                    text = foodItem.foodName,
+                                    text = foodItem.bookName,
                                     style = MaterialTheme.typography.headlineSmall.copy(
                                         textAlign = TextAlign.Center
                                     ),
@@ -244,7 +244,7 @@ fun UserMoreScreen(
                                 RatingBar(
                                     modifier = Modifier.align(Alignment.CenterHorizontally),
                                     size = 15.dp,
-                                    value = foodItem.foodRating,
+                                    value = foodItem.bookRating,
                                     style = RatingBarStyle.Default,
                                     onValueChange = {},
                                     onRatingChanged = {},
@@ -258,7 +258,7 @@ fun UserMoreScreen(
                                 colors = CardDefaults.cardColors(MaterialTheme.colorScheme.primary)
                             ) {
                                 Text(
-                                    text = "Rs ${foodItem.foodPrice}",
+                                    text = "Rs ${foodItem.bookPrice}",
                                     modifier = Modifier.padding(horizontal = 15.dp),
                                     style = MaterialTheme.typography.titleSmall.copy(color = Color.White)
                                 )

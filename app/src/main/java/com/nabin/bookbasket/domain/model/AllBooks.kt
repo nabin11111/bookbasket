@@ -4,19 +4,19 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class AllFoods(
+data class AllBooks(
     @PrimaryKey
-    val foodId: String = "",
-    val foodType: String = "",
-    val foodFamily: String = "",
-    val foodName: String = "",
-    val foodDetails: String = "",
-    val foodPrice: String = "",
-    val foodDiscount: String = "",
-    val foodNewPrice: Int = 0,
+    val bookId: String = "",
+    val bookType: String = "",
+    val bookFamily: String = "",
+    val bookName: String = "",
+    val bookDetails: String = "",
+    val bookPrice: String = "",
+    val bookDiscount: String = "",
+    val bookNewPrice: Int = 0,
     val isSelected: Boolean = false,
-    val foodRating: Float = 0f,
-    val newFoodRating: Float = 0f,
+    val bookRating: Float = 0f,
+    val newBookRating: Float = 0f,
     val quantity: Int = 0,
     val date: String = "",
     val faceImgName: String = "",

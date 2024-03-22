@@ -271,7 +271,7 @@ fun UserHistoryScreen(
                                             )
                                         }
                                         Text(
-                                            text = foodDetails.foodName,
+                                            text = foodDetails.bookName,
                                             modifier = Modifier,
                                             style = MaterialTheme.typography.headlineSmall.copy(
                                                 color = MaterialTheme.colorScheme.onPrimaryContainer
@@ -282,7 +282,7 @@ fun UserHistoryScreen(
 
                                         Text(
                                             modifier = Modifier.fillMaxWidth(0.7f),
-                                            text = foodDetails.foodDetails,
+                                            text = foodDetails.bookDetails,
                                             style = MaterialTheme.typography.bodyMedium.copy(
                                                 fontWeight = FontWeight.SemiBold,
                                                 color = MaterialTheme.colorScheme.outline
@@ -337,7 +337,7 @@ fun UserHistoryScreen(
                                     colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onPrimaryContainer),
                                     onClick = {
                                         foodUrl = foodDetails.faceImgUrl
-                                        foodId = foodDetails.foodId
+                                        foodId = foodDetails.bookId
                                         rateDialog = true
                                     }) {
                                     Text(

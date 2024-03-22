@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.nabin.bookbasket.R
 import com.nabin.bookbasket.data.Resource
 import com.nabin.bookbasket.data.local.Preference
-import com.nabin.bookbasket.domain.model.AllFoods
+import com.nabin.bookbasket.domain.model.AllBooks
 import com.nabin.bookbasket.domain.use_cases.db.DBUseCases
 import com.nabin.bookbasket.domain.use_cases.firestore.FirestoreUseCases
 import com.nabin.bookbasket.presentation.common.components.dialogs.Message
@@ -103,17 +103,17 @@ class UserDashboardViewModel @Inject constructor(
 
                 is Resource.Success -> {
                     dbRepository.insertFoodList(getAllFoodsResponse.data.map {
-                        AllFoods(
-                            foodId = it.foodId,
-                            foodType = it.foodType,
-                            foodFamily = it.foodFamily,
-                            foodName = it.foodName,
-                            foodDetails = it.foodDetails,
-                            foodPrice = it.foodPrice,
-                            foodDiscount = it.foodDiscount,
-                            foodNewPrice = it.foodNewPrice,
-                            foodRating = it.foodRating,
-                            newFoodRating = it.newFoodRating,
+                        AllBooks(
+                            bookId = it.bookId,
+                            bookType = it.bookType,
+                            bookFamily = it.bookFamily,
+                            bookName = it.bookName,
+                            bookDetails = it.bookDetails,
+                            bookPrice = it.bookPrice,
+                            bookDiscount = it.bookDiscount,
+                            bookNewPrice = it.bookNewPrice,
+                            bookRating = it.bookRating,
+                            newBookRating = it.newBookRating,
                             date = it.date,
                             faceImgName = it.faceImgName,
                             faceImgUrl = it.faceImgUrl,
@@ -131,10 +131,10 @@ class UserDashboardViewModel @Inject constructor(
                             supportImgUrl4 = it.supportImgUrl4,
                             supportImgPath4 = it.supportImgPath4,
                             )
-                    }.sortedBy { it.foodName })
+                    }.sortedBy { it.bookName })
                     _state.update {
                         it.copy(
-                            allFoods = getAllFoodsResponse.data.sortedByDescending { it.foodRating },
+                            allFoods = getAllFoodsResponse.data.sortedByDescending { it.bookRating },
                             infoMsg = null
                         )
                     }

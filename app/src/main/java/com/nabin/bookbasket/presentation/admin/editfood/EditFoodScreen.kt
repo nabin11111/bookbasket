@@ -63,7 +63,7 @@ fun EditFoodScreen(
     state: EditFoodState,
     foodId: String
 ) {
-    if (state.foodItemDetails.foodId.isBlank()){
+    if (state.foodItemDetails.bookId.isBlank()){
         event(EditFoodEvent.GetFoodItemDetails(foodId))
     }
     var imageName by remember {

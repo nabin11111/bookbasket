@@ -19,11 +19,11 @@ class UserFoodCategoryViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val data = dbUseCases.getAllFoods().sortedBy { it.foodFamily }
+            val data = dbUseCases.getAllFoods().sortedBy { it.bookFamily }
             _state.update {
                 it.copy(
                     allFoods = data,
-                    foodTypesList = data.map { it.foodFamily }.distinct()
+                    foodTypesList = data.map { it.bookFamily }.distinct()
                 )
             }
         }
