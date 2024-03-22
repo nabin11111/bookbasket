@@ -43,10 +43,10 @@ import com.nabin.bookbasket.presentation.common.utils.CleanNavigate.cleanNavigat
 import com.nabin.bookbasket.presentation.user.dashboard.UserDashboardScreen
 import com.nabin.bookbasket.presentation.user.dashboard.UserDashboardViewModel
 import com.nabin.bookbasket.presentation.user.foodorderdescription.FoodOrderDescriptionScreen
-import com.nabin.bookbasket.presentation.user.foodorderdescription.FoodOrderDescriptionViewModel
-import com.nabin.bookbasket.presentation.user.foodwithcategories.UserFoodCategoryScreen
-import com.nabin.bookbasket.presentation.user.foodwithcategories.UserFoodCategoryViewModel
-import com.nabin.bookbasket.presentation.user.later.MoreFoodScreen
+import com.nabin.bookbasket.presentation.user.foodorderdescription.BookOrderDescriptionViewModel
+import com.nabin.bookbasket.presentation.user.bookwithcategorie.UserFoodCategoryScreen
+import com.nabin.bookbasket.presentation.user.bookwithcategorie.UserFoodCategoryViewModel
+import com.nabin.bookbasket.presentation.user.later.MoreBookScreen
 import com.nabin.bookbasket.presentation.user.morepopularfood.UserMoreScreen
 import com.nabin.bookbasket.presentation.user.morepopularfood.UserMoreViewModel
 import com.nabin.bookbasket.presentation.user.myorder.MyOrderScreen
@@ -155,7 +155,7 @@ fun AppNavHost(
 
         composable(Destination.Screen.UserFoodOrderDescriptionScreen.route) { it ->
             val foodId = it.arguments?.getString("foodId")!!
-            val viewModel = hiltViewModel<FoodOrderDescriptionViewModel>()
+            val viewModel = hiltViewModel<BookOrderDescriptionViewModel>()
             val state by viewModel.state.collectAsStateWithLifecycle()
             FoodOrderDescriptionScreen(
                 foodId = foodId,
@@ -186,7 +186,7 @@ fun AppNavHost(
             )
         }
         composable(Destination.Screen.UserMoreFoodScreen.route) {
-            MoreFoodScreen()
+            MoreBookScreen()
         }
         composable(Destination.Screen.UserMoreScreen.route) {
             val viewModel = hiltViewModel<UserMoreViewModel>()

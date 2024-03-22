@@ -1,4 +1,4 @@
-package com.nabin.bookbasket.presentation.user.foodwithcategories
+package com.nabin.bookbasket.presentation.user.bookwithcategorie
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,24 +14,24 @@ import javax.inject.Inject
 class UserFoodCategoryViewModel @Inject constructor(
     private val dbUseCases: DBUseCases
 ) : ViewModel(){
-    private val _state = MutableStateFlow(UserFoodCategoryState())
-    val state : StateFlow<UserFoodCategoryState> = _state
+    private val _state = MutableStateFlow(UserBookCategoryState())
+    val state : StateFlow<UserBookCategoryState> = _state
 
     init {
         viewModelScope.launch {
             val data = dbUseCases.getAllFoods().sortedBy { it.foodFamily }
             _state.update {
                 it.copy(
-                    allFoods = data,
-                    foodTypesList = data.map { it.foodFamily }.distinct()
+                    allBooks = data,
+                    bookTypesList = data.map { it.foodFamily }.distinct()
                 )
             }
         }
     }
-    val event : (onEvent: UserFoodCategoryEvent) -> Unit = { event ->
+    val event : (onEvent: UserBookCategoryEvent) -> Unit = { event ->
         viewModelScope.launch {
             when(event){
-                UserFoodCategoryEvent.DismissInfoMsg -> {
+                UserBookCategoryEvent.DismissInfoMsg -> {
 
                 }
             }

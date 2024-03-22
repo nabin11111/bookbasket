@@ -34,7 +34,7 @@ class UserHomeViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update {
                 it.copy(
-                    allFoods = dbRepository.getAllFoods()
+                    allBooks = dbRepository.getAllFoods()
                 )
             }
         }

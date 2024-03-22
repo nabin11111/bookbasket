@@ -130,7 +130,7 @@ fun UserHomeScreen(
                         }
                     }
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(15.dp), content = {
-                        items(state.allFoods.filterNot { it.foodType == "Drinks" }) { foodItem ->
+                        items(state.allBooks.filterNot { it.foodType == "Drinks" }) { foodItem ->
                             Column(
                                 modifier = Modifier, horizontalAlignment = Alignment.CenterHorizontally
                             ) {
@@ -199,7 +199,7 @@ fun UserHomeScreen(
 
                     }
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(15.dp), content = {
-                        items(state.allFoods.filter { it.foodType == "Popular" } .sortedBy { it.foodRating }) { foodItem ->
+                        items(state.allBooks.filter { it.foodType == "Popular" } .sortedBy { it.foodRating }) { foodItem ->
                             Box(
                                 modifier = Modifier
                                     .padding(5.dp)
@@ -330,7 +330,7 @@ fun UserHomeScreen(
 //                        }
                     }
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(15.dp), content = {
-                        items(state.allFoods.filter { it.foodType =="Drinks" }) { foodItem ->
+                        items(state.allBooks.filter { it.foodType =="Drinks" }) { foodItem ->
                             Column(
                                 modifier = Modifier, horizontalAlignment = Alignment.CenterHorizontally
                             ) {

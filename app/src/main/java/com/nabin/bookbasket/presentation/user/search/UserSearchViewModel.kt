@@ -22,7 +22,7 @@ class UserSearchViewModel @Inject constructor(
             val data = dbUseCases.getAllFoods().sortedBy { it.foodName }
             _state.update {
                 it.copy(
-                    allFoods = data,
+                    allBooks = data,
                     searchedList = data
                 )
             }
@@ -36,7 +36,7 @@ class UserSearchViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             searchQuery = event.value,
-                            searchedList = state.value.allFoods.filter { it.foodName.contains(event.value,ignoreCase = false) }
+                            searchedList = state.value.allBooks.filter { it.foodName.contains(event.value,ignoreCase = false) }
 
                         )
                     }
@@ -46,7 +46,7 @@ class UserSearchViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             searchQuery = "",
-                            searchedList = state.value.allFoods.sortedBy { it.foodName }
+                            searchedList = state.value.allBooks.sortedBy { it.foodName }
                         )
                     }
                 }

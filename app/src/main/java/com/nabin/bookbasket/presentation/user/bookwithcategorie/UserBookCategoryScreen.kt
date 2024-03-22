@@ -1,4 +1,4 @@
-package com.nabin.bookbasket.presentation.user.foodwithcategories
+package com.nabin.bookbasket.presentation.user.bookwithcategorie
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
@@ -60,8 +60,8 @@ import com.gowtham.ratingbar.RatingBarStyle
 @Composable
 fun UserFoodCategoryScreen(
     navController: NavHostController,
-    state: UserFoodCategoryState,
-    event: (onEvent: UserFoodCategoryEvent) -> Unit,
+    state: UserBookCategoryState,
+    event: (onEvent: UserBookCategoryEvent) -> Unit,
 ) {
     val cardSize = remember {
         mutableFloatStateOf(0f)
@@ -101,7 +101,7 @@ fun UserFoodCategoryScreen(
             state.infoMsg?.let {
                 MessageDialog(message = it, onDismissRequest = {
                     if (event != null && state.infoMsg.isCancellable == true) {
-                        event(UserFoodCategoryEvent.DismissInfoMsg)
+                        event(UserBookCategoryEvent.DismissInfoMsg)
                     }
                 }, onPositive = { /*TODO*/ }) {
 
@@ -111,7 +111,7 @@ fun UserFoodCategoryScreen(
 
 
             LazyColumn {
-                items(state.foodTypesList) { foodType ->
+                items(state.bookTypesList) { foodType ->
                     var show by remember {
                         mutableStateOf(true)
                     }
@@ -172,7 +172,7 @@ fun UserFoodCategoryScreen(
                             FlowRow(
                                 horizontalArrangement = Arrangement.spacedBy(5.dp)
                             ) {
-                                state.allFoods.filter { it.foodFamily == foodType }
+                                state.allBooks.filter { it.foodFamily == foodType }
                                     .forEach { foodItem ->
                                         Spacer(modifier = Modifier.height(5.dp))
                                         Box(

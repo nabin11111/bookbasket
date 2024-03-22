@@ -10,7 +10,7 @@ data class OrderCheckoutState(
     val test: String = "",
     val locationAddress : String = "",
     val location : String = "",
-    val momobarNpj: LatLng = LatLng(
+    val Npj: LatLng = LatLng(
         28.0594641, 81.617649
     ),
     val momobarKlp: LatLng = LatLng(

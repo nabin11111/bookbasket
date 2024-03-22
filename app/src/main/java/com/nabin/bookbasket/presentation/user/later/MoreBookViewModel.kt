@@ -10,21 +10,21 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MoreFoodViewModel @Inject constructor(
+class MoreBookViewModel @Inject constructor(
     private val repository: FirestoreRepository
 ): ViewModel(){
 
-    private val _state = MutableStateFlow(MoreFoodState())
-    val state : StateFlow<MoreFoodState> = _state
+    private val _state = MutableStateFlow(MoreBookState())
+    val state : StateFlow<MoreBookState> = _state
 
     init {
 
     }
 
-    val onEvent: (event: MoreFoodEvent) -> Unit = { event ->
+    val onEvent: (event: MoreBookEvent) -> Unit = { event ->
             viewModelScope.launch {
                 when(event){
-                    MoreFoodEvent.Test -> {
+                    MoreBookEvent.Test -> {
 
                     }
                 }

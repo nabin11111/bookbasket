@@ -54,8 +54,8 @@ class OrderCheckoutViewModel @Inject constructor(
                 )
                 .destination(
                     com.google.maps.model.LatLng(
-                        state.value.momobarNpj.latitude,
-                        state.value.momobarNpj.longitude
+                        state.value.Npj.latitude,
+                        state.value.Npj.longitude
                     )
                 )
                 .await()
@@ -118,8 +118,8 @@ class OrderCheckoutViewModel @Inject constructor(
                                 )
                                 .destination(
                                     com.google.maps.model.LatLng(
-                                        state.value.momobarNpj.latitude,
-                                        state.value.momobarNpj.longitude
+                                        state.value.Npj.latitude,
+                                        state.value.Npj.longitude
                                     )
                                 )
                                 .await()

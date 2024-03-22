@@ -74,14 +74,14 @@ import com.gowtham.ratingbar.RatingBarStyle
 )
 @Composable
 fun FoodOrderDescriptionScreen(
-    onEvent: (event: FoodOrderDescriptionEvent) -> Unit,
-    state: FoodOrderDescriptionState,
+    onEvent: (event: BookOrderDescriptionEvent) -> Unit,
+    state: BookOrderDescriptionState,
     navController: NavHostController,
     foodId: String
 ) {
 
-    if (state.foodItemDetails.foodId.isBlank()) {
-        onEvent(FoodOrderDescriptionEvent.GetFoodItemDetails(foodId))
+    if (state.bookItemDetails.foodId.isBlank()) {
+        onEvent(BookOrderDescriptionEvent.GetFoodItemDetails(foodId))
     }
     var showProfileWarning by remember {
         mutableStateOf(false)
@@ -160,9 +160,9 @@ fun FoodOrderDescriptionScreen(
 
 
     val pagerImages = mutableListOf(
-        state.foodItemDetails.supportImgUrl2,
-        state.foodItemDetails.supportImgUrl3,
-        state.foodItemDetails.supportImgUrl4,
+        state.bookItemDetails.supportImgUrl2,
+        state.bookItemDetails.supportImgUrl3,
+        state.bookItemDetails.supportImgUrl4,
     ).filter { it.isNotBlank() }
 
     val pagerState = rememberPagerState { pagerImages.size }
@@ -205,7 +205,7 @@ fun FoodOrderDescriptionScreen(
                         message = it,
                         onDismissRequest = {
                             if (onEvent != null && state.infoMsg.isCancellable == true) {
-                                onEvent(FoodOrderDescriptionEvent.DismissInfoMsg)
+                                onEvent(BookOrderDescriptionEvent.DismissInfoMsg)
                             }
                         },
                         onPositive = { },
@@ -267,11 +267,11 @@ fun FoodOrderDescriptionScreen(
                                 .size(80.dp)
                                 .clip(shape = CircleShape),
                             contentScale = ContentScale.Crop,
-                            model = state.foodItemDetails.faceImgUrl,
+                            model = state.bookItemDetails.faceImgUrl,
                             contentDescription = "",
                         )
                         Text(
-                            text = state.foodItemDetails.foodName,
+                            text = state.bookItemDetails.foodName,
                             style = MaterialTheme.typography.headlineSmall
                         )
                         Row(
@@ -279,7 +279,7 @@ fun FoodOrderDescriptionScreen(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             RatingBar(size = 15.dp,
-                                value = state.foodItemDetails.foodRating,
+                                value = state.bookItemDetails.foodRating,
                                 spaceBetween = 2.dp,
                                 style = RatingBarStyle.Default,
                                 onValueChange = {
@@ -292,17 +292,17 @@ fun FoodOrderDescriptionScreen(
                                 .padding(end = 5.dp),
                                 onClick = {
                                     onEvent(
-                                        FoodOrderDescriptionEvent.SetFavourite(
-                                            foodId = state.foodItemDetails.foodId,
+                                        BookOrderDescriptionEvent.SetFavourite(
+                                            foodId = state.bookItemDetails.foodId,
                                             isFav = !state.favouriteList.contains(
-                                                FavouriteModel(state.foodItemDetails.foodId)
+                                                FavouriteModel(state.bookItemDetails.foodId)
                                             )
                                         )
                                     )
                                 }) {
                                 Icon(
                                     imageVector = Icons.Default.Favorite,
-                                    tint = if (state.favouriteList.contains(FavouriteModel(state.foodItemDetails.foodId))) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.outline,
+                                    tint = if (state.favouriteList.contains(FavouriteModel(state.bookItemDetails.foodId))) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.outline,
                                     contentDescription = "favourite"
                                 )
                             }
@@ -318,14 +318,14 @@ fun FoodOrderDescriptionScreen(
                                 verticalAlignment = Alignment.Bottom
                             ) {
                                 Text(
-                                    text = "Rs. ${state.foodPrice * state.foodQuantity}",
+                                    text = "Rs. ${state.bookPrice * state.bookQuantity}",
                                     style = MaterialTheme.typography.headlineLarge.copy(
                                         fontWeight = FontWeight.ExtraBold,
                                         color = MaterialTheme.colorScheme.primary
                                     )
                                 )
                                 Text(
-                                    text = "Rs. ${state.foodDiscount * state.foodQuantity}",
+                                    text = "Rs. ${state.bookDiscount * state.bookQuantity}",
 
                                     style = MaterialTheme.typography.titleMedium.copy(
                                         color = MaterialTheme.colorScheme.outline,
@@ -338,7 +338,7 @@ fun FoodOrderDescriptionScreen(
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.spacedBy(10.dp)
                             ) {
-                                if (state.foodQuantity > 1) {
+                                if (state.bookQuantity > 1) {
                                     Card(
                                         modifier = Modifier.size(34.dp),
                                         colors = CardDefaults.cardColors(MaterialTheme.colorScheme.onPrimaryContainer),
@@ -346,7 +346,7 @@ fun FoodOrderDescriptionScreen(
                                     ) {
                                         IconButton(
                                             onClick = {
-                                                onEvent(FoodOrderDescriptionEvent.DecreaseQuantity)
+                                                onEvent(BookOrderDescriptionEvent.DecreaseQuantity)
                                             }) {
                                             Icon(
                                                 imageVector = Icons.Default.Remove,
@@ -358,7 +358,7 @@ fun FoodOrderDescriptionScreen(
                                 }
 
                                 Text(
-                                    text = "${state.foodQuantity}",
+                                    text = "${state.bookQuantity}",
                                     style = MaterialTheme.typography.headlineSmall
                                 )
                                 Card(
@@ -367,7 +367,7 @@ fun FoodOrderDescriptionScreen(
                                     elevation = CardDefaults.cardElevation(10.dp),
                                 ) {
                                     IconButton(onClick = {
-                                        onEvent(FoodOrderDescriptionEvent.IncreaseQuantity)
+                                        onEvent(BookOrderDescriptionEvent.IncreaseQuantity)
                                     }) {
                                         Icon(
                                             imageVector = Icons.Default.Add, contentDescription = "Add"
@@ -382,7 +382,7 @@ fun FoodOrderDescriptionScreen(
                             text = "About the food", style = MaterialTheme.typography.headlineSmall
                         )
                         Text(
-                            text = state.foodItemDetails.foodDetails,
+                            text = state.bookItemDetails.foodDetails,
                             style = MaterialTheme.typography.labelMedium.copy(MaterialTheme.colorScheme.outlineVariant)
                         )
 
@@ -398,11 +398,11 @@ fun FoodOrderDescriptionScreen(
                             colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onPrimaryContainer),
                             onClick = {
                                 if (state.phoneNo.isNotBlank()) {
-                                    onEvent(FoodOrderDescriptionEvent.OrderFood)
+                                    onEvent(BookOrderDescriptionEvent.OrderFood)
                                     navController.navigate(
                                         Destination.Screen.UserOrderCheckoutScreen.route.replace(
                                             "{totalCost}",
-                                            (state.foodItemDetails.foodNewPrice * state.foodQuantity).toString()
+                                            (state.bookItemDetails.foodNewPrice * state.bookQuantity).toString()
                                         )
                                     )
                                 } else {
@@ -418,7 +418,7 @@ fun FoodOrderDescriptionScreen(
                             modifier = Modifier.weight(1f),
                             elevation = ButtonDefaults.buttonElevation(10.dp),
                             onClick = {
-                                onEvent(FoodOrderDescriptionEvent.AddToCart(state.foodItemDetails.foodId))
+                                onEvent(BookOrderDescriptionEvent.AddToCart(state.bookItemDetails.foodId))
                             },
                             enabled = true
                         ) {
