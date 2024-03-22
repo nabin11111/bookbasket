@@ -56,8 +56,8 @@ import com.gowtham.ratingbar.RatingBarStyle
 @Composable
 fun AllFoodScreen(
     nav: NavHostController,
-    event: (event: AllFoodEvent) -> Unit,
-    state: AllFoodState
+    event: (event: AllBookEvent) -> Unit,
+    state: AllBookState
 ) {
     var expanded by remember {
         mutableStateOf(false)
@@ -86,7 +86,7 @@ fun AllFoodScreen(
                 TextField(
                     value = state.searchQuery,
                     onValueChange = {
-                        event(AllFoodEvent.OnQueryChange(it))
+                        event(AllBookEvent.OnQueryChange(it))
                     },
                     leadingIcon = {
                         IconButton(onClick = {
@@ -105,7 +105,7 @@ fun AllFoodScreen(
 
                         } else {
                             IconButton(onClick = {
-                                event(AllFoodEvent.OnQueryCrossClicked)
+                                event(AllBookEvent.OnQueryCrossClicked)
                             }) {
                                 Icon(
                                     tint = MaterialTheme.colorScheme.primary,
@@ -154,7 +154,7 @@ fun AllFoodScreen(
                             DropdownMenuItem(text = {
                                 Text(text = selectionOption.name)
                             }, onClick = {
-                                event(AllFoodEvent.OnFilterChange(selectionOption))
+                                event(AllBookEvent.OnFilterChange(selectionOption))
                                 selectedOption = selectionOption
                                 expanded = false
                             })

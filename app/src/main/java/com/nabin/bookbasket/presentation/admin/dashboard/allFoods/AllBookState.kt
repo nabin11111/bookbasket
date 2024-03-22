@@ -4,7 +4,7 @@ import com.nabin.bookbasket.data.model.GetBookResponse
 import com.nabin.bookbasket.presentation.common.components.OrderDeliveryScreenState
 import com.nabin.bookbasket.presentation.common.components.dialogs.Message
 
-data class AllFoodState(
+data class AllBookState(
     val allBooks : List<GetBookResponse> = emptyList(),
     val searchedList: List<GetBookResponse> = emptyList(),
     val searchQuery: String = "",

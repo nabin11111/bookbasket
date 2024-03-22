@@ -3,11 +3,11 @@ package com.nabin.bookbasket.domain.use_cases.firestore
 data class FirestoreUseCases(
     val setAddress: SetAddress,
 
-    val orderFood: OrderFood,
-    val getFoods: GetFoods,
-    val getFoodItem: GetFoodItem,
-    val getFoodOrders : GetFoodOrders,
-    val getFoodOrderDetails: GetFoodOrderDetails,
+    val orderFood: OrderBook,
+    val getFoods: GetBooks,
+    val getFoodItem: GetBookItem,
+    val getFoodOrders : GetBookOrders,
+    val getFoodOrderDetails: GetBookOrderDetails,
     val removeUserOrder : RemoveUserOrder,
     val updateUserHistory: UpdateUserHistory,
     val orderDelivered : OrderDelivered,
@@ -39,6 +39,6 @@ data class FirestoreUseCases(
 
     val rateIt : RateIt,
     val updateRating: UpdateRating,
-    val getFoodsForUpdate : GetFoodsForUpdate,
+    val getFoodsForUpdate : GetBooksForUpdate,
     val getAdminHistories: GetAdminHistories
 )

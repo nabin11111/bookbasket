@@ -13,7 +13,7 @@ import com.nabin.bookbasket.domain.model.SetOneSignalId
 )
 abstract class OrderDeliveryDatabase :RoomDatabase() {
 
-    abstract val allFoodsDao: AllFoodsDao
+    abstract val allBooksDao: AllFoodsDao
 
     companion object{
         const val DATABASE_NAME = "order_delivery_db"

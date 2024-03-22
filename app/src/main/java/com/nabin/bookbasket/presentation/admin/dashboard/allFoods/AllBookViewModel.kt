@@ -17,12 +17,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AllFoodViewModel @Inject constructor(
+class AllBookViewModel @Inject constructor(
     private val firestoreUseCases: FirestoreUseCases,
     private val dbUseCases: DBUseCases
 ): ViewModel() {
-    private val _state = MutableStateFlow(AllFoodState())
-    val state: StateFlow<AllFoodState> = _state
+    private val _state = MutableStateFlow(AllBookState())
+    val state: StateFlow<AllBookState> = _state
     init {
         getAllFoods()
     }
@@ -92,14 +92,14 @@ class AllFoodViewModel @Inject constructor(
         }
     }
 
-    val onEvent :(event: AllFoodEvent) -> Unit = {event ->
+    val onEvent :(event: AllBookEvent) -> Unit = { event ->
         viewModelScope.launch {
             when(event){
-                is AllFoodEvent.EditFood -> {
+                is AllBookEvent.EditFood -> {
 
                 }
 
-                is AllFoodEvent.OnFilterChange -> {
+                is AllBookEvent.OnFilterChange -> {
                     when(event.value){
                         FilterTypes.Name -> {
                             _state.update {
@@ -131,7 +131,7 @@ class AllFoodViewModel @Inject constructor(
                         }
                     }
                 }
-                is AllFoodEvent.OnQueryChange -> {
+                is AllBookEvent.OnQueryChange -> {
                     _state.update {
                         it.copy(
                             searchQuery = event.value,
@@ -140,7 +140,7 @@ class AllFoodViewModel @Inject constructor(
                         )
                     }
                 }
-                AllFoodEvent.OnQueryCrossClicked -> {
+                AllBookEvent.OnQueryCrossClicked -> {
                     _state.update {
                         it.copy(
                             searchQuery = "",

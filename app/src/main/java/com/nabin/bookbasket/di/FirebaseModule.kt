@@ -20,18 +20,18 @@ import com.nabin.bookbasket.domain.use_cases.firestore.GetAdminHistories
 import com.nabin.bookbasket.domain.use_cases.firestore.GetAdminNotification
 import com.nabin.bookbasket.domain.use_cases.firestore.GetCartItems
 import com.nabin.bookbasket.domain.use_cases.firestore.GetFavouriteList
-import com.nabin.bookbasket.domain.use_cases.firestore.GetFoodItem
-import com.nabin.bookbasket.domain.use_cases.firestore.GetFoodOrderDetails
-import com.nabin.bookbasket.domain.use_cases.firestore.GetFoodOrders
-import com.nabin.bookbasket.domain.use_cases.firestore.GetFoods
-import com.nabin.bookbasket.domain.use_cases.firestore.GetFoodsForUpdate
+import com.nabin.bookbasket.domain.use_cases.firestore.GetBookItem
+import com.nabin.bookbasket.domain.use_cases.firestore.GetBookOrderDetails
+import com.nabin.bookbasket.domain.use_cases.firestore.GetBookOrders
+import com.nabin.bookbasket.domain.use_cases.firestore.GetBooks
+import com.nabin.bookbasket.domain.use_cases.firestore.GetBooksForUpdate
 import com.nabin.bookbasket.domain.use_cases.firestore.GetMyHistory
 import com.nabin.bookbasket.domain.use_cases.firestore.GetNotification
 import com.nabin.bookbasket.domain.use_cases.firestore.GetOffer
 import com.nabin.bookbasket.domain.use_cases.firestore.GetOneSignalIds
 import com.nabin.bookbasket.domain.use_cases.firestore.GetUserProfile
 import com.nabin.bookbasket.domain.use_cases.firestore.OrderDelivered
-import com.nabin.bookbasket.domain.use_cases.firestore.OrderFood
+import com.nabin.bookbasket.domain.use_cases.firestore.OrderBook
 import com.nabin.bookbasket.domain.use_cases.firestore.RateIt
 import com.nabin.bookbasket.domain.use_cases.firestore.ReadNotification
 import com.nabin.bookbasket.domain.use_cases.firestore.RemoveUserOrder
@@ -112,11 +112,11 @@ object FirebaseModule {
     fun provideFirestoreUseCases(repository: FirestoreRepository) =
         FirestoreUseCases(
             setAddress = SetAddress(repository = repository),
-            orderFood = OrderFood(repository = repository),
-            getFoodOrders = GetFoodOrders(repository = repository),
-            getFoodOrderDetails = GetFoodOrderDetails(repository = repository),
-            getFoodItem = GetFoodItem(repository = repository),
-            getFoods = GetFoods(repository = repository),
+            orderFood = OrderBook(repository = repository),
+            getFoodOrders = GetBookOrders(repository = repository),
+            getFoodOrderDetails = GetBookOrderDetails(repository = repository),
+            getFoodItem = GetBookItem(repository = repository),
+            getFoods = GetBooks(repository = repository),
             addFood = AddFood(repository = repository),
             removeUserOrder = RemoveUserOrder(repository = repository),
             updateUserHistory = UpdateUserHistory(repository = repository),
@@ -147,7 +147,7 @@ object FirebaseModule {
 
             rateIt = RateIt(repository = repository),
             updateRating = UpdateRating(repository = repository),
-            getFoodsForUpdate = GetFoodsForUpdate(repository = repository),
+            getFoodsForUpdate = GetBooksForUpdate(repository = repository),
             getAdminHistories = GetAdminHistories(repository = repository)
         )
 

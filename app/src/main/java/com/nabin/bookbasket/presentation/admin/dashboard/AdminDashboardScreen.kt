@@ -77,7 +77,7 @@ import com.nabin.bookbasket.R
 import com.nabin.bookbasket.common.ApplicationAction
 import com.nabin.bookbasket.common.Constants
 import com.nabin.bookbasket.presentation.admin.dashboard.allFoods.AllFoodScreen
-import com.nabin.bookbasket.presentation.admin.dashboard.allFoods.AllFoodViewModel
+import com.nabin.bookbasket.presentation.admin.dashboard.allFoods.AllBookViewModel
 import com.nabin.bookbasket.presentation.admin.dashboard.home.AdminHomeViewModel
 import com.nabin.bookbasket.presentation.admin.dashboard.home.HomeScreen
 import com.nabin.bookbasket.presentation.admin.dashboard.map.AdminMapViewModel
@@ -420,7 +420,7 @@ fun AdminDashboardScreen(
                         )
                     }
                     composable("foods"){
-                        val viewModel = hiltViewModel<AllFoodViewModel>()
+                        val viewModel = hiltViewModel<AllBookViewModel>()
                         AllFoodScreen(
                             nav = navController,
                             event = viewModel.onEvent,
